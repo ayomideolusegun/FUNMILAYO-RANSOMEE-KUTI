@@ -83,7 +83,13 @@
     background-color: rgb(2, 2, 46);
 }
 
+.Story-Category{
+    height: 100vh;
+}
 
+.Story-Intro {
+    padding-left: 60px;
+}
 
 
 
