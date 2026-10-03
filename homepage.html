@@ -5,28 +5,57 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>HOMEPAGE</title>
-        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital,wght@1,800&display=swap" rel="stylesheet">
         <!-- LINKING OF MY CSS -->
         <link rel="stylesheet" href="CSS/Reset.css">
         <link rel="stylesheet" href="CSS/Homepage.css">
+        <link rel="stylesheet" href="/CSS/Chapters.css">
     </head>
 
 <!-- HEADER SECTION -->
+<!-- <script>
+  // close the mobile menu after tapping a link
+  document.querySelectorAll(".Header-Nav a").forEach(function (link) {
+    link.addEventListener("click", function () {
+      document.getElementById("Nav-Toggle").checked = false;
+    });
+  });
+
+  // fade each chapter in as it scrolls into view
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: "0px 0px -10% 0px" });
+
+  document.querySelectorAll("main section").forEach(function (section) {
+    observer.observe(section);
+  });
+</script> -->
 
     <body>
-        <header class="Header"> 
-                <nav class="Header-Nav">
-                    <ul>
-                        <li> <a href="#Home">Home</a></li>
-                        <li> <a href="#Story">Story</a></li>
-                        <li> <a href="#Activism">Activism</a></li>
-                        <li> <a href="#Timeline">Timeline</a></li>
-                        <li> <a href="#Legacy">Legacy</a></li>
-                        <li> <a href="#Gallery">Gallery</a></li>
-                        <li> <a href="#Contact">Contact</a></li>
-                    </ul>
-                </nav>
-        </header>    
+<header class="Header">
+    <a class="Header-Brand" href="#Home">Funmilayo Ransome-Kuti</a>
+    <input type="checkbox" id="Nav-Toggle" class="Nav-Toggle">
+    <label for="Nav-Toggle" class="Nav-Burger" aria-label="Menu"><span></span></label>
+
+    <nav class="Header-Nav">
+        <ul>
+            <li><a href="#Home">Home</a></li>
+            <li><a href="#Story">Story</a></li>
+            <li><a href="#Activism">Activism</a></li>
+            <li><a href="#Timeline">Timeline</a></li>
+            <li><a href="#Legacy">Legacy</a></li>
+            <li><a href="#Gallery">Gallery</a></li>
+            <li><a href="#Contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>  
 
         
         <!-- CATEGORIZING SECTIONS -->
@@ -36,105 +65,349 @@
             <!-- HERO SECTION -->
             <section class="Hero-Category">
             <div class="Hero-Intro">
-                <h1>A WOMAN WHO REFUSED TO BE SILENT</h1>
-                <p>Discover the life, courage and legacy of Funmilayo Ransome-Kuti a Nigerian Educator, politiccal campaigner and women's right activist who became a powerful voice for women and social change</p>
+                <h1 class="Hero-Typing" aria-label="A woman who refused to be silent">
+                <span class="Typing-Ghost" aria-hidden="true">A WOMAN WHO REFUSED TO BE SILENT</span>
+                <span class="Typing-Live" aria-hidden="true"></span>
+                </h1>
+                <p>Discover the life, courage and legacy of Funmilayo Ransome-Kuti a Nigerian Educator, political campaigner and women's right activist who became a powerful voice for women and social change</p>
                 <a href="#Story">Explore her story</a>
             </div>
             </section>
 
 
             <!-- STORY SECTION -->
-            <section id="Story" class="Story-Category">
-            <div class="Story-Intro">
-                <h1>Before the Legacy, There Was a Woman</h1>
-                <p>Behind the name remembered in history was a woman who lived, learned,
-    taught, struggled and dared to challenge the world around her.
-    Funmilayo Ransome-Kuti's journey began long before she became a voice
-    for women's rights and social change. To understand the legacy she left
-    behind, we must first return to the woman she was—and the experiences
-    that shaped her.</p>
-            </div>
+<section id="Story" class="Before-the-Legacy-Category">
+    <div class="Before-the-Legacy">
+
+        <div class="Legacy-Intro">
+            <p class="Legacy-Eyebrow">The Story</p>
+            <h1>Before the Legacy, There Was a <em>Woman</em></h1>
+            <p class="Legacy-Text">Behind the name remembered in history was a woman who lived, learned, taught, struggled and dared to challenge the world around her. Funmilayo Ransome-Kuti's journey began long before she became a voice for women's rights and social change. To understand the legacy she left behind, we must first return to the woman she was; and the experiences that shaped her.</p>
+            <a class="Legacy-Start" href="#Before-the-Name">Begin with chapter one</a>
+        </div>
+
+        <ol class="Legacy-Chapters">
+            <li><a href="#Before-the-Name">
+                <span class="Legacy-Year">1900</span>
+                <span class="Legacy-Chapter-Title">Before the Name</span>
+                <span class="Legacy-Chapter-Hook">Who was she before history knew her name?</span>
+            </a></li>
+            <li><a href="#Early-Life">
+                <span class="Legacy-Year">1906</span>
+                <span class="Legacy-Chapter-Title">Early Life and Education</span>
+                <span class="Legacy-Chapter-Hook">One of the first girls admitted to her school.</span>
+            </a></li>
+            <li><a href="#Finding-Her-Calling">
+                <span class="Legacy-Year">1922</span>
+                <span class="Legacy-Chapter-Title">Finding Her Calling</span>
+                <span class="Legacy-Chapter-Hook">The teacher who began to see beyond the classroom.</span>
+            </a></li>
+            <li><a href="#A-Voice-Begins-to-Rise">
+                <span class="Legacy-Year">1944</span>
+                <span class="Legacy-Chapter-Title">A Voice Begins to Rise</span>
+                <span class="Legacy-Chapter-Hook">How a ladies' club became a movement.</span>
+            </a></li>
+            <li><a href="#Becomes-an-Activist">
+                <span class="Legacy-Year">1947</span>
+                <span class="Legacy-Chapter-Title">A Teacher Becomes an Activist</span>
+                <span class="Legacy-Chapter-Hook">She refused to pay her tax, and thousands stood with her.</span>
+            </a></li>
+            <li><a href="#Life-as-an-Activist">
+                <span class="Legacy-Year">1978</span>
+                <span class="Legacy-Chapter-Title">A Life of Resistance</span>
+                <span class="Legacy-Chapter-Hook">Decades of insisting women deserved a voice.</span>
+            </a></li>
+        </ol>
+
+    </div>
+</section>
 
 
-            <!-- BIOGRAPHY SECTION -->
-            <div> 
+                             <!-- STORY-BIOGRAPHY SECTION -->
+            <section id="Before-the-Name" class="Before-the-Name-Category">
+             <div class="Before-the-Name"> 
                 <h2>Before the Name</h2>
                 <p>Funmilayo Ransome-Kuti was born Frances Abigail Olufunmilayo Thomas on October 25, 1900, in Abeokuta, in what is now Ogun State, Nigeria. She was the daughter of Daniel Olumoyewa Thomas, a farmer and trader, and Phyllis Moyeni Dese, a dressmaker. Her parents were educated Christians who placed importance on education and had high hopes for their children.
 
-She was born into a Yoruba family at a time when Nigeria was under British colonial rule, and the opportunities available to African women were deeply limited. Yet Abeokuta itself had a strong tradition of commerce, community organisation and women's participation in economic life. These surroundings would become an important part of the world in which Funmilayo grew up.
+                    She was born into a Yoruba family at a time when Nigeria was under British colonial rule, and the opportunities available to African women were deeply limited. Yet Abeokuta itself had a strong tradition of commerce, community organisation and women's participation in economic life. These surroundings would become an important part of the world in which Funmilayo grew up.
 
-The girl who would later become known as Funmilayo Ransome-Kuti therefore did not begin her life as a political figure. She began as a daughter, a student and a young woman growing up in Abeokuta—long before her name became associated with women's rights and political resistance.</p>
+                    The girl who would later become known as Funmilayo Ransome Kuti therefore did not begin her life as a political figure. She began as a daughter, a student and a young woman growing up in Abeokuta long before her name became associated with women's rights and political resistance.</p>
+             </div>
+            </section>
 
-
-                <!-- EDUCATION SECTION -->
+                                <!-- STORY-EDUCATION SECTION -->
+            <section id="Early-Life" class="Early-Life-and-Education-Category">
+                <div >
                 <h2>Early Life and Education</h2>
                 <p>Education became an important part of Funmilayo's life from an early age. From 1906 to 1913, she attended St. John's Primary School in Abeokuta before entering Abeokuta Grammar School in 1914. She was among the first girls admitted to the school, and is widely identified as its first female student. At a time when formal education for Nigerian girls was far from common, her presence in the classroom was significant.
 
-Her academic journey continued beyond Abeokuta. In 1919, she travelled to England to study at Wincham Hall School for Girls in Cheshire. There, she studied subjects including music, French, domestic science and elocution. Her years in England exposed her to a different society and, according to biographical accounts, experiences of racial prejudice that influenced how she viewed her identity and the colonial world around her.
+                    Her academic journey continued beyond Abeokuta. In 1919, she travelled to England to study at Wincham Hall School for Girls in Cheshire. There, she studied subjects including music, French, domestic science and elocution. Her years in England exposed her to a different society and, according to biographical accounts, experiences of racial prejudice that influenced how she viewed her identity and the colonial world around her.
 
-During this period, she also chose to leave behind the Christian names Frances and Abigail and increasingly used her Yoruba name, Funmilayo. She returned to Nigeria in 1922, bringing with her an education that would soon find expression in the classroom. She returned to Abeokuta Grammar School as a teacher, beginning a career in education that would become one of the foundations of her later work with women and communities.</p>
+                    During this period, she also chose to leave behind the Christian names Frances and Abigail and increasingly used her Yoruba name, Funmilayo. She returned to Nigeria in 1922, bringing with her an education that would soon find expression in the classroom. She returned to Abeokuta Grammar School as a teacher, beginning a career in education that would become one of the foundations of her later work with women and communities.</p>
 
-                <!-- FINDING HER VOICE -->
-                <h2>Finding Her Voice</h2>
+                </div>
+            </section>
+
+                
+                <!-- STORY-FINDING HER VOICE -->
+            <section id="Finding-Her-Calling" class="Finding-Her-Calling-Category">
+                <div class="Finding-Her-Calling">
+                <h2>Finding Her Calling</h2>
                 <p>When Funmilayo returned to Nigeria in 1922, she returned with more than an education. She had experienced life outside the society in which she was raised, and she brought back a growing awareness of the importance of education, identity and opportunity. She began teaching at Abeokuta Grammar School, the same institution where she had once been a student. For Funmilayo, teaching was not simply a profession; it became one of the earliest ways through which she could influence the lives of others.
 
-Her attention increasingly turned towards the education of girls and women. At a time when many women had limited access to formal education, she believed that learning could give them greater confidence and a stronger voice in their communities. Her work gradually extended beyond the classroom as she became involved in organising young women and creating spaces where they could learn, develop practical skills and participate in community life.
+                    Her attention increasingly turned towards the education of girls and women. At a time when many women had limited access to formal education, she believed that learning could give them greater confidence and a stronger voice in their communities. Her work gradually extended beyond the classroom as she became involved in organising young women and creating spaces where they could learn, develop practical skills and participate in community life.
 
-In the early years, her approach was not yet the political activism for which she would later become famous. She began by working within the community she knew: educating, organising and encouraging women to become more involved in their own development. In 1932, after returning to Abeokuta with her family, she continued this educational work and established a kindergarten within the Abeokuta Grammar School community. She later petitioned the Nigerian Department of Education to have the school formally recognised as a primary school, and her request was approved.
+                    In the early years, her approach was not yet the political activism for which she would later become famous. She began by working within the community she knew: educating, organising and encouraging women to become more involved in their own development. In 1932, after returning to Abeokuta with her family, she continued this educational work and established a kindergarten within the Abeokuta Grammar School community. She later petitioned the Nigerian Department of Education to have the school formally recognised as a primary school, and her request was approved.
 
-But the more Funmilayo worked with women, the more she began to see the problems that existed beyond the classroom. Education was important, but many women were also dealing with economic hardship, limited political representation and policies that affected their everyday lives. Her experiences with women in the community would eventually lead her from education into organised advocacy.
+                    But the more Funmilayo worked with women, the more she began to see the problems that existed beyond the classroom. Education was important, but many women were also dealing with economic hardship, limited political representation and policies that affected their everyday lives. Her experiences with women in the community would eventually lead her from education into organised advocacy.
 
-The teacher was beginning to become an organiser. And the woman who had once entered the classroom as one of its first female students was gradually finding a much larger classroom—the community itself.</p>
+                    The teacher was beginning to become an organiser. And the woman who had once entered the classroom as one of its first female students was gradually finding a much larger classroom the community itself.</p>
+                </div>
+            </section>
 
 
+                            <!-- STORY-HER VOICE IS RISEN ALREADY -->
 
-                <!-- HER VOICE IS RISEN ALREADY -->
+            <section  id="A-Voice-Begins-to-Rise" class="A-Voice-Begins-to-Rise-Category">
+                <div class="A-Voice-Begins-to-Rise">
                 <h2>A Voice Begins to Rise</h2>
                 <p>Funmilayo’s work with women gradually took her beyond the classroom. In the late 1920s, while living in Ijebu-Ode, she organised a young ladies’ club where girls were taught singing, handicrafts and cooking. What began as an effort at self-improvement soon expanded into literacy and civic activities involving women outside the educated elite. These early experiences introduced her to the possibilities of organising women around the concerns of their communities.
 
-When she returned to Abeokuta in the early 1930s, her connection with the town became even stronger. She continued her educational work and became increasingly involved in the lives of women around her. She was beginning to see that many of the difficulties women faced could not be solved by education alone. Women also needed to be organised, heard and represented.
+                    When she returned to Abeokuta in the early 1930s, her connection with the town became even stronger. She continued her educational work and became increasingly involved in the lives of women around her. She was beginning to see that many of the difficulties women faced could not be solved by education alone. Women also needed to be organised, heard and represented.
 
-In 1944, Funmilayo took a significant step by forming the Abeokuta Ladies Club. It initially brought together mainly educated Christian women, teachers and traders, and its activities included charity, sewing and catering. But its direction soon began to change. When market women approached Funmilayo for help with reading and sewing, she established literacy classes for them. Their growing involvement brought her into closer contact with the everyday economic problems they faced.
+                    In 1944, Funmilayo took a significant step by forming the Abeokuta Ladies Club. It initially brought together mainly educated Christian women, teachers and traders, and its activities included charity, sewing and catering. But its direction soon began to change. When market women approached Funmilayo for help with reading and sewing, she established literacy classes for them. Their growing involvement brought her into closer contact with the everyday economic problems they faced.
 
-The relationship between Funmilayo and the market women transformed the organisation. Their concerns over wartime food controls and restrictions on trade became impossible to ignore. The educated women of the Ladies Club and the market women began working together, creating a much broader movement that connected education, economic hardship and women's rights.
+                    The relationship between Funmilayo and the market women transformed the organisation. Their concerns over wartime food controls and restrictions on trade became impossible to ignore. The educated women of the Ladies Club and the market women began working together, creating a much broader movement that connected education, economic hardship and women's rights.
 
-By 1946, the Abeokuta Ladies Club had become the Abeokuta Women’s Union, with Funmilayo as its president. The organisation brought women from different social and economic backgrounds together and increasingly challenged the conditions that affected their lives. Funmilayo's role was changing too. She was no longer simply teaching women; she was helping them organise, articulate their grievances and demand to be taken seriously.
+                    By 1946, the Abeokuta Ladies Club had become the Abeokuta Women’s Union, with Funmilayo as its president. The organisation brought women from different social and economic backgrounds together and increasingly challenged the conditions that affected their lives. Funmilayo's role was changing too. She was no longer simply teaching women; she was helping them organise, articulate their grievances and demand to be taken seriously.
 
-A voice that had begun in the classroom was now being heard in the streets of Abeokuta. And as the women became more organised, their demands became harder for those in power to ignore.</p>
+                    A voice that had begun in the classroom was now being heard in the streets of Abeokuta. And as the women became more organised, their demands became harder for those in power to ignore.</p>
+                </div>
+            </section>
 
 
-                <!-- SHE BECOMES AN ACTIVIST -->
+                        <!-- STORY-SHE BECOMES AN ACTIVIST -->
+
+            <section id="Becomes-an-Activist" class="Becomes-an-Activist-Category">
+            <div class="Becomes-an-Activist">
                 <h2>A Teacher Becomes an Activist</h2>
                 <p>Funmilayo’s work with women was changing her understanding of what leadership meant. The women she encountered were not only struggling with limited access to education; many were also affected by taxes, economic restrictions and decisions made by authorities without their participation. For Funmilayo, these were no longer issues that could be addressed from the classroom alone.
 
-The turning point came through the Abeokuta Women’s Union. Under Funmilayo’s leadership, the Union began challenging the taxation of women and the way the colonial administration and the Alake’s government exercised authority over them. The Union first relied on petitions, letters and negotiations, seeking changes through established channels. When these efforts produced little progress, the women began taking more direct action.
+                    The turning point came through the Abeokuta Women’s Union. Under Funmilayo’s leadership, the Union began challenging the taxation of women and the way the colonial administration and the Alake’s government exercised authority over them. The Union first relied on petitions, letters and negotiations, seeking changes through established channels. When these efforts produced little progress, the women began taking more direct action.
 
-In 1947, Funmilayo herself refused to pay her tax as a way of drawing attention to the burden placed on women. Her appearance in court attracted thousands of supporters, and women demonstrated in her support. Later that year, the Union organised mass demonstrations at the Alake’s palace, where women staged prolonged sit-ins demanding changes to the taxation system and greater accountability from the authorities.
+                    In 1947, Funmilayo herself refused to pay her tax as a way of drawing attention to the burden placed on women. Her appearance in court attracted thousands of supporters, and women demonstrated in her support. Later that year, the Union organised mass demonstrations at the Alake’s palace, where women staged prolonged sit-ins demanding changes to the taxation system and greater accountability from the authorities.
 
-What had started with education and community organisation had now become a political struggle. Funmilayo was using the same qualities that had made her a teacher—organisation, communication and persistence—to challenge decisions that affected thousands of women.
+                    What had started with education and community organisation had now become a political struggle. Funmilayo was using the same qualities that had made her a teacher organisation, communication and persistence to challenge decisions that affected thousands of women.
 
-Her role had changed. She was no longer simply helping women find their voices; she was helping them use those voices collectively. The teacher had become an activist, and the movement she helped build was about to become one of the most significant women's campaigns in colonial Nigeria.</p>
+                    Her role had changed. She was no longer simply helping women find their voices; she was helping them use those voices collectively. The teacher had become an activist, and the movement she helped build was about to become one of the most significant women's campaigns in colonial Nigeria.</p>
+            </div>
+            </section>
 
-
-                <!-- LIFE AS AN ACTIVIST -->
+                
+                            <!-- LIFE AS AN ACTIVIST -->
+            <section  id="Life-as-an-Activist" class="Life-as-an-Activist-Category">
+            <div class="Life-as-an-Activist">
                 <h2>A Life of Resistance</h2>
-                <p>A Life of Resistance
+                <p>The Abeokuta women’s struggle was only one part of Funmilayo Ransome-Kuti’s long life of resistance. As Nigeria moved towards independence, her activism expanded beyond Abeokuta. She became involved in national politics and continued to advocate for women’s participation in public life. In 1956, she became Treasurer of the Western Nigerian Working Committee of the National Council of Nigeria and the Cameroons (NCNC). Three years later, after the party declined to officially sponsor her candidacy for the House of Representatives, she contested the election as an independent and later founded the Commoners’ People’s Party.
 
-The Abeokuta women’s struggle was only one part of Funmilayo Ransome-Kuti’s long life of resistance. As Nigeria moved towards independence, her activism expanded beyond Abeokuta. She became involved in national politics and continued to advocate for women’s participation in public life. In 1956, she became Treasurer of the Western Nigerian Working Committee of the National Council of Nigeria and the Cameroons (NCNC). Three years later, after the party declined to officially sponsor her candidacy for the House of Representatives, she contested the election as an independent and later founded the Commoners’ People’s Party.
+                    Her political journey was not without setbacks. As Nigeria entered the post-independence era, political divisions weakened the broad unity that had once surrounded her women’s movement. In 1966, military rule brought an end to party politics, but Funmilayo did not simply withdraw from public life. She continued to speak on issues she considered important and, during the Nigerian Civil War, appealed to leaders on both sides to seek a truce.
 
-Her political journey was not without setbacks. As Nigeria entered the post-independence era, political divisions weakened the broad unity that had once surrounded her women’s movement. In 1966, military rule brought an end to party politics, but Funmilayo did not simply withdraw from public life. She continued to speak on issues she considered important and, during the Nigerian Civil War, appealed to leaders on both sides to seek a truce.
+                    Even in her later years, resistance remained part of her character. She continued to defend what she regarded as basic civic rights, including freedom of speech, while also remaining involved in education and the affairs of her community. Her home in Abeokuta remained a place where local women came for advice, assistance and help in settling disputes.
 
-Even in her later years, resistance remained part of her character. She continued to defend what she regarded as basic civic rights, including freedom of speech, while also remaining involved in education and the affairs of her community. Her home in Abeokuta remained a place where local women came for advice, assistance and help in settling disputes.
+                    Then, in 1977, violence reached her family in a way that would profoundly affect her final years. During a military raid on the Kalakuta Republic, the compound associated with her son Fela Ransome-Kuti, Funmilayo was thrown from a second-floor window and seriously injured. She was taken to hospital and never fully recovered from her injuries.
 
-Then, in 1977, violence reached her family in a way that would profoundly affect her final years. During a military raid on the Kalakuta Republic, the compound associated with her son Fela Ransome-Kuti, Funmilayo was thrown from a second-floor window and seriously injured. She was taken to hospital and never fully recovered from her injuries.
+                    Funmilayo Ransome-Kuti died in Lagos on April 13, 1978, leaving behind a life that had stretched across colonial rule, the struggle for independence and the turbulent early years of independent Nigeria. She had been a teacher, organiser, political campaigner and advocate for women's rights. Her story was not defined by one protest or one political victory, but by decades of insisting that women deserved education, representation and a voice in the society they helped build.
 
-Funmilayo Ransome-Kuti died in Lagos on April 13, 1978, leaving behind a life that had stretched across colonial rule, the struggle for independence and the turbulent early years of independent Nigeria. She had been a teacher, organiser, political campaigner and advocate for women's rights. Her story was not defined by one protest or one political victory, but by decades of insisting that women deserved education, representation and a voice in the society they helped build.
-
-Her life had come to an end, but the questions she spent her life raising did not disappear with her. The woman who had once entered a classroom as a young girl had eventually helped thousands of women step into the public sphere. That is where her story ends—and where her legacy begins.</p>
-
-            </div> 
+                    Her life had come to an end, but the questions she spent her life raising did not disappear with her. The woman who had once entered a classroom as a young girl had eventually helped thousands of women step into the public sphere. That is where her story ends and where her legacy begins.</p>
+            </div>
+            </section>
+            
         </main>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+
+    // close the mobile menu after tapping a link
+    var toggle = document.getElementById("Nav-Toggle");
+    if (toggle) {
+      document.querySelectorAll(".Header-Nav a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          toggle.checked = false;
+        });
+      });
+    }
+
+    var calmMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // typing animation on the hero heading
+    var heading = document.querySelector(".Hero-Typing");
+
+    if (heading && !calmMotion) {
+      var live = heading.querySelector(".Typing-Live");
+      var message = "A WOMAN WHO REFUSED TO BE SILENT";
+      var count = 0;
+      var typing = true;
+
+      function draw() {
+        live.innerHTML = message.slice(0, count) + '<span class="Typing-Cursor"></span>';
+      }
+
+      function step() {
+        var delay;
+        if (typing) {
+          count++;
+          draw();
+          if (count >= message.length) { typing = false; delay = 2400; }
+          else { delay = 85; }
+        } else {
+          count--;
+          draw();
+          if (count <= 0) { typing = true; delay = 700; }
+          else { delay = 35; }
+        }
+        setTimeout(step, delay);
+      }
+
+      heading.classList.add("is-typing");
+      draw();
+      setTimeout(step, 600);
+    }
+
+    var chapterSelector = ".Before-the-Name-Category, .Early-Life-and-Education-Category, " +
+      ".Finding-Her-Calling-Category, .A-Voice-Begins-to-Rise-Category, " +
+      ".Becomes-an-Activist-Category, .Life-as-an-Activist-Category";
+
+    if ("IntersectionObserver" in window && !calmMotion) {
+
+      // ---------- chapter text types itself in, once ----------
+
+      var cursor = document.createElement("span");
+      cursor.className = "Type-Cursor";
+
+      // show the full text straight away (also used when you scroll past)
+      function finishNow(section) {
+        clearTimeout(section._timer);
+        cancelAnimationFrame(section._raf);
+        section._state = "done";
+        section._typing.forEach(function (part) {
+          part.ghost.classList.add("is-done");
+          part.live.remove();
+        });
+        startObserver.unobserve(section);
+        leaveObserver.unobserve(section);
+      }
+
+      function typeSection(section) {
+        section._state = "typing";
+        var parts = section._typing;
+        var total = 0;
+        parts.forEach(function (part) { total += part.text.length; });
+
+        var charsPerSecond = Math.max(70, total / 10);   // a long chapter takes about 10 seconds
+        var startTime = null;
+
+        function frame(now) {
+          if (startTime === null) startTime = now;
+          var typed = Math.min(total, Math.floor((now - startTime) / 1000 * charsPerSecond));
+          var left = typed;
+          var current = parts.length - 1;
+          var found = false;
+
+          parts.forEach(function (part, index) {
+            var take = Math.max(0, Math.min(left, part.text.length));
+            part.live.textContent = part.text.slice(0, take);
+            if (!found && take < part.text.length) { current = index; found = true; }
+            left -= take;
+          });
+
+          if (typed < total) {
+            parts[current].live.appendChild(cursor);
+            section._raf = requestAnimationFrame(frame);
+          } else {
+            finishNow(section);
+          }
+        }
+
+        section._raf = requestAnimationFrame(frame);
+      }
+
+      // starts the typing when the card comes into view (after the cascade)
+      var startObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          var section = entry.target;
+          if (entry.isIntersecting && section._state === "waiting") {
+            section._state = "queued";
+            section._timer = setTimeout(function () { typeSection(section); }, 900);
+            startObserver.unobserve(section);
+          }
+        });
+      }, { threshold: 0, rootMargin: "0px 0px -20% 0px" });
+
+      // if you scroll past a chapter before it finishes, the text appears at once
+      var leaveObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          var section = entry.target;
+          if (section._state === "done") return;
+
+          if (entry.isIntersecting) {
+            section._seen = true;
+          } else if (section._seen || entry.boundingClientRect.bottom <= 0) {
+            // you have scrolled past it (or it was already above you after a refresh)
+            finishNow(section);
+          }
+        });
+      }, { threshold: 0, rootMargin: "0px" });
+
+      document.querySelectorAll(chapterSelector).forEach(function (section) {
+        var parts = [];
+
+        section.querySelectorAll("p").forEach(function (p) {
+          var text = p.textContent;
+          if (!text.trim()) return;
+
+          p.textContent = "";
+          p.classList.add("Type-Host");
+
+          var ghost = document.createElement("span");
+          ghost.className = "Type-Ghost";
+          ghost.textContent = text;
+
+          var live = document.createElement("span");
+          live.className = "Type-Live";
+          live.setAttribute("aria-hidden", "true");
+
+          p.appendChild(ghost);
+          p.appendChild(live);
+          parts.push({ ghost: ghost, live: live, text: text });
+        });
+
+        if (parts.length) {
+          section._typing = parts;
+          section._state = "waiting";
+          startObserver.observe(section);
+          leaveObserver.observe(section);
+        }
+      });
+
+      // ---------- each chapter card arrives with the cascade and year roll ----------
+
+      var cardObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting || entry.boundingClientRect.bottom <= 0) {
+            entry.target.classList.add("is-in");
+            cardObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0, rootMargin: "0px 0px -15% 0px" });
+
+      document.querySelectorAll(chapterSelector).forEach(function (card) {
+        cardObserver.observe(card);
+      });
+
+      document.documentElement.classList.add("fk-cascade-on");
+    }
+  });
+</script>
     </body>
 
 

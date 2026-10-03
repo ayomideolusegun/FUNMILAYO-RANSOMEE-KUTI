@@ -58,13 +58,15 @@
     font-size: 70px;
     color: white;
     font-weight: 600;
+    padding-right: 30px;
     margin-bottom: 30px;
 }
 
 .Hero-Intro p{
     color: white;
     font-size: 25px;
-    text-decoration: italic;
+    font-style: italic;
+    /* text-decoration: italic; */
     margin-bottom: 30px;
 }
 
@@ -83,33 +85,28 @@
     background-color: rgb(2, 2, 46);
 }
 
-.Story-Category{
-    height: 100vh;
+.Before-the-Legacy-Category {
+    margin-top: 50px;
+    min-height: 100vh;
+    padding: 0 30px;
+    background:
+    radial-gradient(ellipse at 72% 0%, #ad8a60 0%, #906e4c 25%, #7c5940 50%, transparent 80%),
+    linear-gradient(to top right, #4d3123, #5b3b29 60%, #6b4a34);
+  background-color: #5b3b29;
+  min-height: 100vh;
 }
 
-.Story-Intro {
-    padding-left: 60px;
+.Before-the-Legacy h1{
+    font-size: 40px;
+    font-weight: 900;
+    margin-bottom: 20px;
+    color: red;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /* background-image: url(../Images/hero.jpg);
-    background-size: 70vh, cover;
-    background-repeat: no-repeat;
-    background-position: bottom, center;
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    z-index: 100; */
+.Before-the-Legacy p{
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    color: white;
+    /* max-width: 600px; */
+}
