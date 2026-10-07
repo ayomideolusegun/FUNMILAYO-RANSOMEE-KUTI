@@ -15,42 +15,42 @@
     --glow: 82% 50%;
     --year: "1900";
     --yr: 1900;
-    --chapter: "Story, chapter 1 of 6";
+    --chapter: "Chapter 1";
 }
 
 .Early-Life-and-Education-Category {
     --glow: 14% 48%;
     --year: "1906";
     --yr: 1906;
-    --chapter: "Story, chapter 2 of 6";
+    --chapter: "Chapter 2";
 }
 
 .Finding-Her-Calling-Category {
     --glow: 86% 45%;
     --year: "1922";
     --yr: 1922;
-    --chapter: "Story, chapter 3 of 6";
+    --chapter: "Chapter 3";
 }
 
 .A-Voice-Begins-to-Rise-Category {
     --glow: 18% 50%;
     --year: "1944";
     --yr: 1944;
-    --chapter: "Story, chapter 4 of 6";
+    --chapter: "Chapter 4";
 }
 
 .Becomes-an-Activist-Category {
     --glow: 80% 48%;
     --year: "1947";
     --yr: 1947;
-    --chapter: "Story, chapter 5 of 6";
+    --chapter: "Chapter 5";
 }
 
 .Life-as-an-Activist-Category {
     --glow: 22% 50%;
     --year: "1978";
     --yr: 1978;
-    --chapter: "Story, chapter 6 of 6";
+    --chapter: "Chapter 6";
 }
 
 
@@ -198,7 +198,7 @@
     align-items: center;
     justify-content: center;
     aspect-ratio: 3 / 4;
-    border: 0.5px solid #9db1e8;
+    border-radius: 20px;
     font-family: system-ui, sans-serif;
     font-size: 0.8rem;
     color: #9db1e8;
@@ -209,13 +209,14 @@
 }
 
 /* WHEN YOU HAVE A REAL PHOTO, add a rule like this for that chapter
-   (and remove the /* and * / around it):
+   (and remove the /* and * / around it): */
 
 .Before-the-Name-Category::after {
     content: "";
-    background: url(../IMAGES/your-photo.jpg) center / cover no-repeat;
+    background: url(../IMAGES/02.jpg) center / cover no-repeat;
 }
-*/
+
+
 
 
 /* ---------- 6. Small helper: stop the fixed header covering anchors ---------- */
@@ -846,40 +847,40 @@ main {
 
 
 /* ---------- H. Chapter photos (ready for when you have the images) ---------- */
-/* Put your images in the IMAGES folder, then remove the comment markers
+ /* Put your images in the IMAGES folder, then remove the comment markers
    from a rule and change the file name. Images are cropped to fill the
-   frame, so any size works (portrait photos look best).
+   frame, so any size works (portrait photos look best). */
 
-.Before-the-Name-Category::after {
+/* .Before-the-Name-Category::after {
     content: "";
     background: url(../IMAGES/ch1-before-the-name.jpg) center / cover no-repeat;
-}
+} */
 
-.Early-Life-and-Education-Category::after {
+ .Early-Life-and-Education-Category::after {
     content: "";
-    background: url(../IMAGES/ch2-early-life.jpg) center / cover no-repeat;
-}
+    background: url(../IMAGES/FUNMILAYO\ 3.jpg) center / cover no-repeat;
+} 
 
-.Finding-Her-Calling-Category::after {
+ .Finding-Her-Calling-Category::after {
     content: "";
-    background: url(../IMAGES/ch3-finding-her-calling.jpg) center / cover no-repeat;
-}
+    background: url(../IMAGES/01.jpg) center / cover no-repeat;
+} 
 
-.A-Voice-Begins-to-Rise-Category::after {
+ .A-Voice-Begins-to-Rise-Category::after {
     content: "";
-    background: url(../IMAGES/ch4-a-voice-begins-to-rise.jpg) center / cover no-repeat;
-}
+    background: url(../IMAGES/FUNMILAYO\ 1.jpg) center / cover no-repeat;
+} 
 
-.Becomes-an-Activist-Category::after {
+ .Becomes-an-Activist-Category::after {
     content: "";
     background: url(../IMAGES/ch5-becomes-an-activist.jpg) center / cover no-repeat;
-}
+} 
 
-.Life-as-an-Activist-Category::after {
+ .Life-as-an-Activist-Category::after {
     content: "";
-    background: url(../IMAGES/ch6-life-of-resistance.jpg) center / cover no-repeat;
-}
-*/
+    background: url(../IMAGES/05.jpg) center / cover no-repeat;
+}  
+
 
 
 /* ---------- I. Chapter text types itself in when scrolled into view ---------- */
