@@ -1344,3 +1344,49 @@ main {
         font-size: 0.8rem;
     }
 }
+
+/* ----- "Back to all chapters" strip (Story page only) ----- */
+
+.Back-Strip {
+    box-sizing: border-box;
+    padding: 72px max(48px, calc((100% - 1100px) / 2)) 12px;   /* the 72px clears the fixed header */
+    background: #4d3123;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.Back-Strip a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: system-ui, sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #9db1e8;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.Back-Strip a span {
+    display: inline-block;
+    transition: transform 0.2s;
+}
+
+.Back-Strip a:hover {
+    color: #ffffff;
+}
+
+.Back-Strip a:hover span {
+    transform: translateX(-4px);
+}
+
+.Back-Strip a:focus-visible {
+    outline: 2px solid #9db1e8;
+    outline-offset: 4px;
+}
+
+@media (max-width: 700px) {
+    .Back-Strip {
+        padding: 72px 24px 12px;
+    }
+}
