@@ -1485,11 +1485,25 @@ main {
 
 .Timeline-Category.has-counter .Timeline-CounterWrap {
     display: block;
+    position: relative;
+    align-self: stretch;   /* as tall as the whole list of events */
 }
 
-.Timeline-Category .Timeline-Counter {
-    position: sticky;
-    top: 100px;
+/* The script moves the counter between these three places:
+   normal (at the start), fixed (following you), is-end (resting at the end). */
+.Timeline-Category .Timeline-Counter.is-fixed {
+    position: fixed;
+    top: var(--tl-top, 100px);
+    left: var(--tl-left, 0);
+    width: var(--tl-width, 240px);
+    z-index: 20;
+}
+
+.Timeline-Category .Timeline-Counter.is-end {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 }
 
 .Timeline-Category .Timeline-Counter p {
@@ -1651,25 +1665,32 @@ main {
     }
 
     .Timeline-Category.has-counter .Timeline-Body {
-        grid-template-columns: minmax(0, 1fr);
+        display: block;
+        position: relative;
+        padding-bottom: 5rem;   /* room for the bar to rest at the end */
+    }
+
+    .Timeline-Category.has-counter .Timeline-CounterWrap {
+        position: static;
+    }
+
+    .Timeline-Category .Timeline-Counter.is-end {
+        left: -24px;
+        width: calc(100% + 48px);
     }
 
     .Timeline-Category .Timeline-CounterWrap {
-        position: sticky;
-        top: 60px;
-        z-index: 5;
         margin: 0 -24px 18px;
-        padding: 10px 24px;
-        background-color: #a38e5f;
-        border-bottom: 1px solid rgba(30, 17, 9, 0.35);
     }
 
     .Timeline-Category .Timeline-Counter {
-        position: static;
         display: flex;
         align-items: baseline;
         flex-wrap: wrap;
         gap: 4px 14px;
+        padding: 10px 24px;
+        background-color: #a38e5f;
+        border-bottom: 1px solid rgba(30, 17, 9, 0.35);
     }
 
     .Timeline-Category .Timeline-CounterLabel {

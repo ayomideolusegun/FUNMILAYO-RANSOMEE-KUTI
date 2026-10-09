@@ -762,7 +762,7 @@
     var yearEl = section.querySelector(".Timeline-CounterYear");
     var eraEl = section.querySelector(".Timeline-CounterEra");
     var aboutEl = section.querySelector(".Timeline-About");
-    if (!events.length || !ageEl || !yearEl || !eraEl || !("IntersectionObserver" in window)) return;
+    if (!events.length || !ageEl || !yearEl || !eraEl) return;
 
     var calmMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     var shownAge = 0;
@@ -808,18 +808,87 @@
       }
     }
 
-    // an event becomes "current" when it reaches a thin band near the middle of the screen
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) activate(entry.target);
-      });
-    }, { rootMargin: "-40% 0px -55% 0px", threshold: 0 });
+    // before the first event is reached, the counter goes back to its starting state
+    function deactivate() {
+      if (current === null && shownAge === 0) return;
+      if (current) current.classList.remove("is-active");
+      current = null;
+      showAge(0);
+      yearEl.textContent = "1900";
+      eraEl.textContent = "Before the story begins";
+      if (aboutEl) aboutEl.style.visibility = "hidden";
+    }
 
-    events.forEach(function (item) { observer.observe(item); });
+    // works out which event you are reading from where the page is scrolled to
+    function updateActive() {
+      var line = window.innerHeight * 0.42;      // the reading line, a little above the middle
+      var chosen = null;
+
+      for (var i = 0; i < events.length; i++) {
+        if (events[i].getBoundingClientRect().top <= line) chosen = events[i];
+        else break;
+      }
+
+      // at the very end of the page the last event can never reach the reading line,
+      // so once it is fully on screen it counts as the current one
+      var last = events[events.length - 1];
+      if (last.getBoundingClientRect().bottom <= window.innerHeight - 30) chosen = last;
+
+      if (chosen) activate(chosen);
+      else deactivate();
+    }
+
+    // ---- keeps the counter in view all the way down (and back up) ----
+    var wrap = section.querySelector(".Timeline-CounterWrap");
+    var counter = section.querySelector(".Timeline-Counter");
+    var listBox = section.querySelector(".Timeline-Body");
+    var ticking = false;
+
+    function placeCounter() {
+      if (!wrap || !counter || !listBox) {
+        updateActive();
+        return;
+      }
+
+      var onPhone = window.innerWidth <= 800;
+      var top = onPhone ? 60 : 100;            // how far below the top of the screen it rests
+
+      wrap.style.minHeight = counter.offsetHeight + "px";   // keeps the space when it leaves its place
+      counter.classList.remove("is-fixed", "is-end");
+
+      updateActive();
+
+      var listRect = listBox.getBoundingClientRect();
+      var wrapRect = wrap.getBoundingClientRect();
+
+      if (listRect.top >= top) return;                                   // start: normal place
+      if (listRect.bottom - counter.offsetHeight <= top) {               // end: rests at the bottom
+        counter.classList.add("is-end");
+        return;
+      }
+      counter.classList.add("is-fixed");                                 // middle: follows you
+      counter.style.setProperty("--tl-top", top + "px");
+      counter.style.setProperty("--tl-left", wrapRect.left + "px");
+      counter.style.setProperty("--tl-width", wrapRect.width + "px");
+    }
+
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        ticking = false;
+        placeCounter();
+      });
+    }
 
     // only now does the page switch to the counter layout, so if this script
     // ever fails, the Timeline simply shows as a normal list
     section.classList.add("has-counter");
+    placeCounter();
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    window.addEventListener("load", onScroll);
   })();
 </script>
 
