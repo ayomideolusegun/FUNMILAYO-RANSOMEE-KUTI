@@ -6,64 +6,37 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>HOMEPAGE</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital,wght@1,800&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital,wght@1,800&display=swap" rel="stylesheet">
         <!-- LINKING OF MY CSS -->
         <link rel="stylesheet" href="CSS/Reset.css">
         <link rel="stylesheet" href="CSS/Homepage.css">
         <link rel="stylesheet" href="/CSS/Chapters.css">
     </head>
 
-<!-- HEADER SECTION -->
-<!-- <script>
-  // close the mobile menu after tapping a link
-  document.querySelectorAll(".Header-Nav a").forEach(function (link) {
-    link.addEventListener("click", function () {
-      document.getElementById("Nav-Toggle").checked = false;
-    });
-  });
-
-  // fade each chapter in as it scrolls into view
-  var observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: "0px 0px -10% 0px" });
-
-  document.querySelectorAll("main section").forEach(function (section) {
-    observer.observe(section);
-  });
-</script> -->
-
     <body>
-<header class="Header">
-    <a class="Header-Brand" href="#Home">Funmilayo Ransome-Kuti</a>
-    <input type="checkbox" id="Nav-Toggle" class="Nav-Toggle">
-    <label for="Nav-Toggle" class="Nav-Burger" aria-label="Menu"><span></span></label>
+        <header class="Header">
+            <a class="Header-Brand" href="#Home">Funmilayo Ransome-Kuti</a>
+            <input type="checkbox" id="Nav-Toggle" class="Nav-Toggle">
+            <label for="Nav-Toggle" class="Nav-Burger" aria-label="Menu"><span></span></label>
 
-    <nav class="Header-Nav">
-        <ul>
-            <li><a href="#Home">Home</a></li>
-            <li><a href="#Story">Story</a></li>
-            <li><a href="#Activism">Activism</a></li>
-            <li><a href="#Timeline">Timeline</a></li>
-            <li><a href="#Legacy">Legacy</a></li>
-            <li><a href="#Gallery">Gallery</a></li>
-            <li><a href="#Contact">Contact</a></li>
-        </ul>
-    </nav>
-</header>  
-
-        
-        <!-- CATEGORIZING SECTIONS -->
+        <nav class="Header-Nav">
+            <ul>
+                <li><a href="#Home">Home</a></li>
+                <li><a href="#Story">Story</a></li>
+                <li><a href="#Activism">Activism</a></li>
+                <li><a href="#Timeline">Timeline</a></li>
+                <li><a href="#Legacy">Legacy</a></li>
+                <li><a href="#Gallery">Gallery</a></li>
+                <li><a href="#Contact">Contact</a></li>
+            </ul>
+         </nav>
+        </header>  
 
         <main>
 
             <!-- HERO SECTION -->
-            <section class="Hero-Category">
+        <section class="Hero-Category">
             <div class="Hero-Intro">
                 <h1 class="Hero-Typing" aria-label="A woman who refused to be silent">
                 <span class="Typing-Ghost" aria-hidden="true">A WOMAN WHO REFUSED TO BE SILENT</span>
@@ -72,19 +45,19 @@
                 <p>Discover the life, courage and legacy of Funmilayo Ransome-Kuti a Nigerian Educator, political campaigner and women's right activist who became a powerful voice for women and social change</p>
                 <a href="#Story">Explore her story</a>
             </div>
-            </section>
+        </section>
 
 
             <!-- STORY SECTION -->
-<section id="Story" class="Before-the-Legacy-Category">
-    <div class="Before-the-Legacy">
+        <section id="Story" class="Before-the-Legacy-Category">
+            <div class="Before-the-Legacy">
 
-        <div class="Legacy-Intro">
-            <p class="Legacy-Eyebrow">The Story</p>
-            <h1>Before the Legacy, There Was a <em>Woman</em></h1>
-            <p class="Legacy-Text">Behind the name remembered in history was a woman who lived, learned, taught, struggled and dared to challenge the world around her. Funmilayo Ransome-Kuti's journey began long before she became a voice for women's rights and social change. To understand the legacy she left behind, we must first return to the woman she was; and the experiences that shaped her.</p>
-            <a class="Legacy-Start" href="story.html#Before-the-Name">Begin with chapter one</a>
-        </div>
+            <div class="Legacy-Intro">
+                <p class="Legacy-Eyebrow">The Story</p>
+                <h1>Before the Legacy, There Was a <em>Woman</em></h1>
+                <p class="Legacy-Text">Behind the name remembered in history was a woman who lived, learned, taught, struggled and dared to challenge the world around her. Funmilayo Ransome-Kuti's journey began long before she became a voice for women's rights and social change. To understand the legacy she left behind, we must first return to the woman she was; and the experiences that shaped her.</p>
+                <a class="Legacy-Start" href="story.html#Before-the-Name">Begin with chapter one</a>
+            </div>
 
         <ol class="Legacy-Chapters">
             <li><a href="story.html#Before-the-Name">
@@ -119,15 +92,15 @@
             </a></li>
         </ol>
 
-    </div>
-</section>
+             </div>
+        </section>
 
               <!-- ACTIVISM CARDS -->
-<section id="Activism" class="Activism-Category">
+        <section id="Activism" class="Activism-Category">
 
-    <div class="Activism-Intro">
-        <p class="Activism-Label">Activism</p>
-        <h2>What She Fought For</h2>
+            <div class="Activism-Intro">
+            <p class="Activism-Label">Activism</p>
+            <h2>What She Fought For</h2>
         <p>
             Funmilayo Ransome-Kuti did not fight for one cause. She fought for
             the women nobody was listening to: the market traders taxed with no
@@ -136,15 +109,16 @@
             and abroad, and she did it by organising ordinary women in their
             thousands rather than speaking on their behalf from a distance.
         </p>
+
         <nav class="Activism-Index" aria-label="Jump to a campaign">
-    <a href="#Activism-1"><b>01</b>Teaching Women to Read</a>
-    <a href="#Activism-2"><b>02</b>The Women's Union</a>
-    <a href="#Activism-3"><b>03</b>The Tax Revolt</a>
-    <a href="#Activism-4"><b>04</b>A Place in Government</a>
-    <a href="#Activism-5"><b>05</b>Against Colonial Rule</a>
-    <a href="#Activism-6"><b>06</b>World Stage</a>
-</nav>
-    </div>
+            <a href="#Activism-1"><b>01</b>Teaching Women to Read</a>
+            <a href="#Activism-2"><b>02</b>The Women's Union</a>
+            <a href="#Activism-3"><b>03</b>The Tax Revolt</a>
+            <a href="#Activism-4"><b>04</b>A Place in Government</a>
+            <a href="#Activism-5"><b>05</b>Against Colonial Rule</a>
+            <a href="#Activism-6"><b>06</b>World Stage</a>
+        </nav>
+        </div>
 
     <div class="Activism-Cards">
 
@@ -158,6 +132,7 @@
                 treated education as the first step toward women claiming a
                 voice.
             </p>
+
             <details>
                 <summary>Read more</summary>
                 <p>
@@ -334,10 +309,261 @@
                     the time with that kind of reach.
                 </p>
             </details>
-        </article>
+            </article>
+            </div>
+            </section> 
+
+            <section id="Timeline" class="Timeline-Category">
+
+    <div class="Timeline-Intro">
+        <p class="Timeline-Label">Timeline</p>
+        <h2>A Life, Year by Year</h2>
+        <p class="Timeline-Hook">Scroll, and watch her grow older.</p>
+        <p class="Timeline-Lead">
+            Funmilayo Ransome-Kuti's life, from her birth in Abeokuta in 1900
+            to her death in 1978, in six chapters of time.
+        </p>
     </div>
-</section> 
-        </main>
+
+    <div class="Timeline-Body">
+
+        <aside class="Timeline-CounterWrap" aria-hidden="true">
+            <div class="Timeline-Counter">
+                <p class="Timeline-CounterLabel">Her age <span class="Timeline-About">(about)</span></p>
+                <p class="Timeline-CounterAge">0</p>
+                <p class="Timeline-CounterYear">1900</p>
+                <p class="Timeline-CounterEra">Before the story begins</p>
+            </div>
+        </aside>
+
+        <div class="Timeline-Eras">
+
+            <!-- ERA I -->
+            <div class="Timeline-Era" data-name="Beginnings">
+                <div class="Timeline-EraHead">
+                    <span class="Timeline-EraNumber" aria-hidden="true">I</span>
+                    <h3>Beginnings</h3>
+                    <p class="Timeline-EraYears">1900 &ndash; 1922</p>
+                </div>
+                <ol class="Timeline-Events">
+                    <li class="Timeline-Event" data-year="1900" data-age="0" data-exact="true">
+                        <p class="Timeline-Meta"><span class="Timeline-Year">1900</span><span class="Timeline-Tag">Family</span></p>
+                        <h4>Born in Abeokuta</h4>
+                        <p class="Timeline-Text">Frances Abigail Olufunmilayo Olufela Folorunso Thomas is born on 25 October.</p>
+                    </li>
+                    <li class="Timeline-Event" data-year="1914" data-age="14">
+                        <p class="Timeline-Meta"><span class="Timeline-Year">1914</span><span class="Timeline-Tag">Education</span></p>
+                        <h4>Enters Abeokuta Grammar School</h4>
+                        <p class="Timeline-Text">The school admits its first female students, and she is first among the six girls registered that year.</p>
+                    </li>
+                    <li class="Timeline-Event" data-year="1919" data-age="19">
+                        <p class="Timeline-Meta"><span class="Timeline-Year">1919</span><span class="Timeline-Tag">Education</span></p>
+                        <h4>Studies in England</h4>
+                        <p class="Timeline-Text">She attends Wincham Hall School for Girls in Cheshire until 1922.</p>
+                    </li>
+                    <li class="Timeline-Event" data-year="1922" data-age="22">
+                        <p class="Timeline-Meta"><span class="Timeline-Year">1922</span><span class="Timeline-Tag">Family</span></p>
+                        <h4>Returns home as Funmilayo</h4>
+                        <p class="Timeline-Text">Before returning to Abeokuta, she drops her Christian names and chooses her Yoruba name, which means "God has given me joy".</p>
+                    </li>
+                </ol>
+            </div>
+
+            <!-- ERA II -->
+            <div class="Timeline-Era" data-name="Teacher and Mother">
+                <div class="Timeline-EraHead">
+                    <span class="Timeline-EraNumber" aria-hidden="true">II</span>
+                    <h3>Teacher and Mother</h3>
+                    <p class="Timeline-EraYears">1925 &ndash; 1943</p>
+                </div>
+                <ol class="Timeline-Events">
+                    <li class="Timeline-Event" data-year="1925" data-age="24" data-exact="true">
+                        <p class="Timeline-Meta"><span class="Timeline-Year">1925</span><span class="Timeline-Tag">Family</span></p>
+                        <h4>Marries Israel Oludotun Ransome-Kuti</h4>
+                        <p class="Timeline-Text">They marry on 20 January, and the marriage lasts 30 years, until his death.</p>
+                    </li>
+                    <li class="Timeline-Event" data-year="1926" data-age="26" data-year-label="1926 &ndash; 1940">
+                        <p class="Timeline-Meta"><span class="Timeline-Year">1926 &ndash; 1940</span><span class="Timeline-Tag">Family</span></p>
+                        <h4>Raises four children</h4>
+                        <p class="Timeline-Text">Dolupo is born in 1926, Olikoye in 1927, Fela in 1938 and Beko in 1940.</p>
+                    </li>
+                    <li class="Timeline-Event" data-year="1928" data-age="28">
+                        <p class="Timeline-Meta"><span class="Timeline-Year">1928</span><span class="Timeline-Tag">Education</span></p>
+                        <h4>Opens one of Nigeria's first preschool classes</h4>
+                        <p class="Timeline-Text">Around the same time, she starts a club for young women of elite families and classes for women who cannot read.</p>
+                    </li>
+                    <li class="Timeline-Event" data-year="1932" data-age="32">
+                        <p class="Timeline-Meta"><span class="Timeline-Year">1932</span><span class="Timeline-Tag">Organising</span></p>
+                        <h4>Helps establish the Abeokuta Ladies Club</h4>
+                        <p class="Timeline-Text">The club focuses on charity work, sewing, catering and adult education.</p>
+                    </li>
+                    <li class="Timeline-Event" data-year="1935" data-age="35" data-year-label="1935 &ndash; 1936">
+                        <p class="Timeline-Meta"><span class="Timeline-Year">1935 &ndash; 1936</span><span class="Timeline-Tag">Family</span></p>
+                        <h4>First woman in Abeokuta to drive a car</h4>
+                        <p class="Timeline-Text">The couple has a secondhand car shipped from England.</p>
+                    </li>
+                </ol>
+            </div>
+
+            <!-- ERA III -->
+            <div class="Timeline-Era" data-name="The Organiser">
+                <div class="Timeline-EraHead">
+                    <span class="Timeline-EraNumber" aria-hidden="true">III</span>
+                    <h3>The Organiser</h3>
+                    <p class="Timeline-EraYears">1944 &ndash; 1949</p>
+                </div>
+                <ol class="Timeline-Events">
+                    <li class="Timeline-Event" data-year="1944" data-age="44">
+                        <p class="Timeline-Meta"><span class="Timeline-Year">1944</span><span class="Timeline-Tag">Organising</span></p>
+                        <h4>Campaigns against rice seizures</h4>
+                        <p class="Timeline-Text">She leads a campaign to stop local authorities taking rice from market women under false pretences.</p>
+                    </li>
+                    <li class="Timeline-Event" data-year="1946" data-age="46">
+                        <p class="Timeline-Meta"><span class="Timeline-Year">1946</span><span class="Timeline-Tag">Organising</span></p>
+                        <h4>The club becomes the Abeokuta Women's Union</h4>
+                        <p class="Timeline-Text">Now open to all women in Abeokuta, it fights unfair price controls and taxes, with Funmilayo as president.</p>
+                    </li>
+                    <li class="Timeline-Event" data-year="1947" data-age="46" data-exact="true">
+                        <p class="Timeline-Meta"><span class="Timeline-Year">1947</span><span class="Timeline-Tag">Politics</span></p>
+                        <h4>Travels to London</h4>
+                        <p class="Timeline-Text">She is the only woman in the NCNC delegation protesting the Richards Constitution, and they leave on 26 June.</p>
+                    </li>
+                    <li class="Timeline-Event" data-year="1948" data-age="47" data-exact="true">
+                        <p class="Timeline-Meta"><span class="Timeline-Year">1948</span><span class="Timeline-Tag">Protest</span></p>
+                        <h4>The standoff at the palace</h4>
+                        <p class="Timeline-Text">After the Alake bans her from the palace, union members block its entrance. In April, he suspends the tax on women.</p>
+                    </li>
+                    <li class="Timeline-Event" data-year="1949" data-age="48">
+                        <p class="Timeline-Meta"><span class="Timeline-Year">1949</span><span class="Timeline-Tag">Protest</span></p>
+                        <h4>The Alake steps down</h4>
+                        <p class="Timeline-Text">Petitions, press conferences and songs outside the palace force the Alake out for a time. She and four other women join the interim council, the first formal representation of women in the region.</p>
+                    </li>
+                    <li class="Timeline-Event" data-year="1949" data-age="48" data-exact="true">
+                        <p class="Timeline-Meta"><span class="Timeline-Year">1949</span><span class="Timeline-Tag">Organising</span></p>
+                        <h4>Proposes the Nigerian Women's Union</h4>
+                        <p class="Timeline-Text">She puts the idea forward in May, and the Abeokuta union becomes its branch.</p>
+                    </li>
+                </ol>
+            </div>
+
+            <!-- ERA IV -->
+            <div class="Timeline-Era" data-name="A National Voice">
+                <div class="Timeline-EraHead">
+                    <span class="Timeline-EraNumber" aria-hidden="true">IV</span>
+                    <h3>A National Voice</h3>
+                    <p class="Timeline-EraYears">1950 &ndash; 1960</p>
+                </div>
+                <ol class="Timeline-Events">
+                    <li class="Timeline-Event" data-year="1951" data-age="51">
+                        <p class="Timeline-Meta"><span class="Timeline-Year">1951</span><span class="Timeline-Tag">Politics</span></p>
+                        <h4>Runs for the regional assembly</h4>
+                        <p class="Timeline-Text">She stands as an NCNC candidate and loses, partly because a voter tax shuts out many of her supporters.</p>
+                    </li>
+                    <li class="Timeline-Event" data-year="1953" data-age="53">
+                        <p class="Timeline-Meta"><span class="Timeline-Year">1953</span><span class="Timeline-Tag">Organising</span></p>
+                        <h4>Founds the Federation of Nigerian Women's Societies</h4>
+                        <p class="Timeline-Text">About 400 women delegates meet in Abeokuta. That year the federation joins the Women's International Democratic Federation, and she is elected a vice president.</p>
+                    </li>
+                    <li class="Timeline-Event" data-year="1954" data-age="54" data-year-label="1950s">
+                        <p class="Timeline-Meta"><span class="Timeline-Year">1950s</span><span class="Timeline-Tag">Politics</span></p>
+                        <h4>First woman in the Western House of Chiefs</h4>
+                        <p class="Timeline-Text">She is given the title of Oloye of the Yoruba people.</p>
+                    </li>
+                    <li class="Timeline-Event" data-year="1955" data-age="54" data-exact="true">
+                        <p class="Timeline-Meta"><span class="Timeline-Year">1955</span><span class="Timeline-Tag">Family</span></p>
+                        <h4>Israel dies</h4>
+                        <p class="Timeline-Text">He dies on 6 April after a long illness.</p>
+                    </li>
+                    <li class="Timeline-Event" data-year="1956" data-age="56">
+                        <p class="Timeline-Meta"><span class="Timeline-Year">1956</span><span class="Timeline-Tag">International</span></p>
+                        <h4>Visits China</h4>
+                        <p class="Timeline-Text">She lectures on Nigerian women and meets Mao Zedong.</p>
+                    </li>
+                    <li class="Timeline-Event" data-year="1957" data-age="57" data-year-label="1957 &ndash; 1958">
+                        <p class="Timeline-Meta"><span class="Timeline-Year">1957 &ndash; 1958</span><span class="Timeline-Tag">International</span></p>
+                        <h4>Denied a passport and a US visa</h4>
+                        <p class="Timeline-Text">British authorities refuse to renew her passport in 1957, and the United States denies her a visa in 1958, citing suspected communist ties.</p>
+                    </li>
+                    <li class="Timeline-Event" data-year="1959" data-age="59">
+                        <p class="Timeline-Meta"><span class="Timeline-Year">1959</span><span class="Timeline-Tag">Politics</span></p>
+                        <h4>Leaves the NCNC</h4>
+                        <p class="Timeline-Text">Denied a second NCNC candidacy, she runs as an independent, and the party revokes her membership. She founds the Commoners' People's Party.</p>
+                    </li>
+                    <li class="Timeline-Event" data-year="1960" data-age="60">
+                        <p class="Timeline-Meta"><span class="Timeline-Year">1960</span><span class="Timeline-Tag">Politics</span></p>
+                        <h4>Nigeria becomes independent</h4>
+                        <p class="Timeline-Text">Her passport is renewed, and the new constitution brings universal adult suffrage.</p>
+                    </li>
+                </ol>
+            </div>
+
+            <!-- ERA V -->
+            <div class="Timeline-Era" data-name="Honours and Elder Years">
+                <div class="Timeline-EraHead">
+                    <span class="Timeline-EraNumber" aria-hidden="true">V</span>
+                    <h3>Honours and Elder Years</h3>
+                    <p class="Timeline-EraYears">1963 &ndash; 1976</p>
+                </div>
+                <ol class="Timeline-Events">
+                    <li class="Timeline-Event" data-year="1963" data-age="63">
+                        <p class="Timeline-Meta"><span class="Timeline-Year">1963</span><span class="Timeline-Tag">International</span></p>
+                        <h4>Leads the Nigerian branch of the Women's International League for Peace and Freedom</h4>
+                        <p class="Timeline-Text">She is its president from 1963.</p>
+                    </li>
+                    <li class="Timeline-Event" data-year="1965" data-age="65">
+                        <p class="Timeline-Meta"><span class="Timeline-Year">1965</span><span class="Timeline-Tag">Honour</span></p>
+                        <h4>Member of the Order of the Niger</h4>
+                        <p class="Timeline-Text">The national honour for her contribution to Nigeria.</p>
+                    </li>
+                    <li class="Timeline-Event" data-year="1966" data-age="66">
+                        <p class="Timeline-Meta"><span class="Timeline-Year">1966</span><span class="Timeline-Tag">Politics</span></p>
+                        <h4>The military takes power</h4>
+                        <p class="Timeline-Text">She sees the coup as a positive step but condemns the violence after the counter-coup that year.</p>
+                    </li>
+                    <li class="Timeline-Event" data-year="1968" data-age="68">
+                        <p class="Timeline-Meta"><span class="Timeline-Year">1968</span><span class="Timeline-Tag">Honour</span></p>
+                        <h4>Honorary doctorate of laws</h4>
+                        <p class="Timeline-Text">The University of Ibadan honours her.</p>
+                    </li>
+                    <li class="Timeline-Event" data-year="1970" data-age="70">
+                        <p class="Timeline-Meta"><span class="Timeline-Year">1970</span><span class="Timeline-Tag">Honour</span></p>
+                        <h4>Awarded the Lenin Peace Prize</h4>
+                        <p class="Timeline-Text">Recognition of her work for women's rights and peace.</p>
+                    </li>
+                    <li class="Timeline-Event" data-year="1972" data-age="72" data-year-label="Early 1970s">
+                        <p class="Timeline-Meta"><span class="Timeline-Year">Early 1970s</span><span class="Timeline-Tag">Family</span></p>
+                        <h4>Takes the name Anikulapo-Kuti</h4>
+                        <p class="Timeline-Text">Inspired by her son Fela's decision to drop colonial influences.</p>
+                    </li>
+                </ol>
+            </div>
+
+            <!-- ERA VI -->
+            <div class="Timeline-Era" data-name="The Final Years">
+                <div class="Timeline-EraHead">
+                    <span class="Timeline-EraNumber" aria-hidden="true">VI</span>
+                    <h3>The Final Years</h3>
+                    <p class="Timeline-EraYears">1977 &ndash; 1978</p>
+                </div>
+                <ol class="Timeline-Events">
+                    <li class="Timeline-Event" data-year="1977" data-age="76" data-exact="true">
+                        <p class="Timeline-Meta"><span class="Timeline-Year">1977</span><span class="Timeline-Tag">Resistance</span></p>
+                        <h4>The raid on Kalakuta</h4>
+                        <p class="Timeline-Text">On 18 February, close to 1,000 soldiers storm her son's compound, and she is thrown from a second-floor window.</p>
+                    </li>
+                    <li class="Timeline-Event" data-year="1978" data-age="77" data-exact="true">
+                        <p class="Timeline-Meta"><span class="Timeline-Year">1978</span><span class="Timeline-Tag">Family</span></p>
+                        <h4>Dies on 13 April</h4>
+                        <p class="Timeline-Text">She dies of her injuries. She is buried in Abeokuta in the same vault as her husband, and thousands attend the funeral.</p>
+                    </li>
+                </ol>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+            </main>
         
 <!-- THE JAVASCRIPT BELOW IS FOR THE TYPING ANIMATION AND THE CASCADE EFFECTS ON THE CHAPTERS. IT ALSO CLOSES THE MOBILE MENU AFTER A LINK IS CLICKED.  -->
 <script>
@@ -523,12 +749,80 @@
       document.documentElement.classList.add("fk-cascade-on");
     }
   });
+    </script>
+
+    <script>
+  // Timeline: the age counter follows the event you are reading
+  (function () {
+    var section = document.getElementById("Timeline");
+    if (!section) return;
+
+    var events = section.querySelectorAll(".Timeline-Event");
+    var ageEl = section.querySelector(".Timeline-CounterAge");
+    var yearEl = section.querySelector(".Timeline-CounterYear");
+    var eraEl = section.querySelector(".Timeline-CounterEra");
+    var aboutEl = section.querySelector(".Timeline-About");
+    if (!events.length || !ageEl || !yearEl || !eraEl || !("IntersectionObserver" in window)) return;
+
+    var calmMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var shownAge = 0;
+    var frame = 0;
+    var current = null;
+
+    if (aboutEl) aboutEl.style.visibility = "hidden";
+
+    // counts the number up (or down) to the new age
+    function showAge(target) {
+      cancelAnimationFrame(frame);
+      if (calmMotion) {
+        shownAge = target;
+        ageEl.textContent = target;
+        return;
+      }
+      var from = shownAge;
+      var start = null;
+      function step(now) {
+        if (start === null) start = now;
+        var p = Math.min(1, (now - start) / 700);
+        shownAge = Math.round(from + (target - from) * (1 - Math.pow(1 - p, 3)));
+        ageEl.textContent = shownAge;
+        if (p < 1) frame = requestAnimationFrame(step);
+      }
+      frame = requestAnimationFrame(step);
+    }
+
+    function activate(item) {
+      if (item === current) return;
+      if (current) current.classList.remove("is-active");
+      current = item;
+      item.classList.add("is-active");
+
+      showAge(parseInt(item.getAttribute("data-age"), 10));
+      yearEl.textContent = item.getAttribute("data-year-label") || item.getAttribute("data-year");
+
+      var era = item.closest(".Timeline-Era");
+      eraEl.textContent = era ? era.getAttribute("data-name") : "";
+
+      if (aboutEl) {
+        aboutEl.style.visibility = item.getAttribute("data-exact") === "true" ? "hidden" : "visible";
+      }
+    }
+
+    // an event becomes "current" when it reaches a thin band near the middle of the screen
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) activate(entry.target);
+      });
+    }, { rootMargin: "-40% 0px -55% 0px", threshold: 0 });
+
+    events.forEach(function (item) { observer.observe(item); });
+
+    // only now does the page switch to the counter layout, so if this script
+    // ever fails, the Timeline simply shows as a normal list
+    section.classList.add("has-counter");
+  })();
 </script>
-    </body>
 
-
-
-
-
+</body>
 
 </html>
