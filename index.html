@@ -798,6 +798,103 @@
     </dialog>
 
 </section>
+
+<section id="Contact" class="Contact-Category">
+
+    <div class="Contact-Intro">
+        <p class="Contact-Label">Contact</p>
+        <h2>Help Us Tell Her Story</h2>
+        <p class="Contact-Hook">
+            This website is still growing. If you have a photograph, a memory or a
+            correction, we would like to hear from you.
+        </p>
+    </div>
+
+    <div class="Contact-Columns">
+
+        <div class="Contact-Ways">
+
+            <div class="Contact-Way">
+                <span class="Contact-WayNumber" aria-hidden="true">01</span>
+                <div>
+                    <h3>Share a photograph</h3>
+                    <p>Family pictures, archive scans or photographs of the places in her story. We always credit whoever made them.</p>
+                </div>
+            </div>
+
+            <div class="Contact-Way">
+                <span class="Contact-WayNumber" aria-hidden="true">02</span>
+                <div>
+                    <h3>Correct a fact</h3>
+                    <p>Spotted a mistake in a date or a detail? Tell us what you know and, if you can, where it is written.</p>
+                </div>
+            </div>
+
+            <div class="Contact-Way">
+                <span class="Contact-WayNumber" aria-hidden="true">03</span>
+                <div>
+                    <h3>Tell a story</h3>
+                    <p>Did you or your family know her, or take part in the movement? We would be glad to hear it.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Replace YOUR_FORM_ID with the code Formspree gives you (see the steps) -->
+        <form class="Contact-Form" action="https://formspree.io/f/xjygrayv" method="POST">
+            <h3>Send a message</h3>
+
+            <div class="Contact-Field">
+                <label for="contact-name">Your name</label>
+                <input id="contact-name" name="name" type="text" autocomplete="name" required>
+            </div>
+
+            <div class="Contact-Field">
+                <label for="contact-email">Your email</label>
+                <input id="contact-email" name="email" type="email" autocomplete="email" required>
+            </div>
+
+            <div class="Contact-Field">
+                <label for="contact-topic">What is this about?</label>
+                <select id="contact-topic" name="topic">
+                    <option>Share a photograph</option>
+                    <option>Correct a fact</option>
+                    <option>Tell a story</option>
+                    <option>Something else</option>
+                </select>
+            </div>
+
+            <div class="Contact-Field">
+                <label for="contact-message">Your message</label>
+                <textarea id="contact-message" name="message" rows="5" required></textarea>
+            </div>
+
+            <!-- hidden fields: a trap for spam robots, and the subject line of the email you receive -->
+            <input type="text" name="_gotcha" class="Contact-Trap" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <input type="hidden" name="_subject" value="New message from the Funmilayo Ransome-Kuti website">
+
+            <button class="Contact-Send" type="submit">Send message &rarr;</button>
+            <p class="Contact-Status" role="status" aria-live="polite"></p>
+            <p class="Contact-Small">We read every message. Please do not send photographs you do not have the right to share.</p>
+        </form>
+
+    </div>
+
+</section>
+
+<footer class="Contact-Footer">
+    <div>
+        <p class="Contact-FooterName">Funmilayo Ransome-Kuti, 1900&ndash;1978</p>
+        <p class="Contact-FooterText">Photographs are credited where the maker is known. Dates and details are drawn from the sources listed here.</p>
+    </div>
+    <div>
+        <p class="Contact-FooterHead">Further reading</p>
+        <p class="Contact-FooterText">
+            For Women and the Nation: Funmilayo Ransome-Kuti of Nigeria, Cheryl Johnson-Odim and Nina Mba<br>
+            Funmilayo Ransome-Kuti and the Women's Union of Abeokuta, UNESCO
+        </p>
+    </div>
+</footer>
             </main>
         
 <!-- THE JAVASCRIPT BELOW IS FOR THE TYPING ANIMATION AND THE CASCADE EFFECTS ON THE CHAPTERS. IT ALSO CLOSES THE MOBILE MENU AFTER A LINK IS CLICKED.  -->
@@ -1124,6 +1221,163 @@
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
     window.addEventListener("load", onScroll);
+  })();
+</script>
+
+<script>
+  // Gallery: click a frame to see the photograph larger
+  (function () {
+    var section = document.getElementById("Gallery");
+    if (!section) {
+      console.warn('Gallery: no element with id="Gallery" was found.');
+      return;
+    }
+
+    var dialog = section.querySelector(".Gallery-Lightbox");
+    var items = Array.prototype.slice.call(section.querySelectorAll(".Gallery-Item"));
+    if (!dialog || !items.length) {
+      console.warn("Gallery: the viewer (Gallery-Lightbox) or the frames (Gallery-Item) are missing.");
+      return;
+    }
+
+    var imageBox = dialog.querySelector(".Gallery-LightboxImage");
+    var noEl = dialog.querySelector(".Gallery-LightboxNo");
+    var yearEl = dialog.querySelector(".Gallery-LightboxYear");
+    var titleEl = dialog.querySelector(".Gallery-LightboxTitle");
+    var captionEl = dialog.querySelector(".Gallery-LightboxCaption");
+    var creditEl = dialog.querySelector(".Gallery-LightboxCredit");
+    var index = 0;
+
+    function pad(n) { return n < 10 ? "0" + n : String(n); }
+
+    // reads text from a frame's label, and never fails if something is missing
+    function textOf(parent, selector) {
+      var el = parent.querySelector(selector);
+      return el ? el.textContent : "";
+    }
+
+    function setText(el, value) {
+      if (el) el.textContent = value;
+    }
+
+    function openViewer() {
+      if (typeof dialog.showModal === "function") {
+        if (!dialog.open) dialog.showModal();
+      } else {
+        dialog.setAttribute("open", "");
+      }
+    }
+
+    function closeViewer() {
+      if (typeof dialog.close === "function") dialog.close();
+      else dialog.removeAttribute("open");
+    }
+
+    function show(i) {
+      index = (i + items.length) % items.length;
+      var item = items[index];
+      var img = item.querySelector("img");
+
+      if (imageBox) {
+        imageBox.innerHTML = "";
+        if (img) {
+          var big = document.createElement("img");
+          big.src = img.currentSrc || img.src;
+          big.alt = img.alt;
+          imageBox.appendChild(big);
+        } else {
+          var holder = document.createElement("span");
+          holder.className = "Gallery-Placeholder";
+          holder.textContent = "Photo to come";
+          imageBox.appendChild(holder);
+        }
+      }
+
+      setText(noEl, "No. " + pad(index + 1) + " of " + pad(items.length));
+      setText(yearEl, textOf(item, ".Gallery-Year"));
+      setText(titleEl, textOf(item, ".Gallery-Title"));
+      setText(captionEl, item.getAttribute("data-caption") || "");
+      setText(creditEl, textOf(item, ".Gallery-Source"));
+    }
+
+    // one listener for the whole gallery: clicking a photo, a frame or a label all open it
+    section.addEventListener("click", function (event) {
+      var item = event.target.closest ? event.target.closest(".Gallery-Item") : null;
+      if (!item) return;
+      var i = items.indexOf(item);
+      if (i === -1) return;
+      show(i);
+      openViewer();
+    });
+
+    var closeBtn = dialog.querySelector(".Gallery-Close");
+    var prevBtn = dialog.querySelector(".Gallery-Prev");
+    var nextBtn = dialog.querySelector(".Gallery-Next");
+    if (closeBtn) closeBtn.addEventListener("click", closeViewer);
+    if (prevBtn) prevBtn.addEventListener("click", function () { show(index - 1); });
+    if (nextBtn) nextBtn.addEventListener("click", function () { show(index + 1); });
+
+    // clicking the dark area around the viewer closes it
+    dialog.addEventListener("click", function (event) {
+      if (event.target === dialog) closeViewer();
+    });
+
+    // arrow keys move between photographs (Esc already closes it)
+    dialog.addEventListener("keydown", function (event) {
+      if (event.key === "ArrowLeft") show(index - 1);
+      if (event.key === "ArrowRight") show(index + 1);
+    });
+  })();
+</script>
+
+
+<script>
+  // Contact: sends the form to Formspree without leaving the page
+  (function () {
+    var form = document.querySelector(".Contact-Form");
+    if (!form) return;
+
+    var status = form.querySelector(".Contact-Status");
+    var button = form.querySelector(".Contact-Send");
+
+    form.addEventListener("submit", function (event) {
+      // the form has not been connected to Formspree yet
+      if (form.action.indexOf("YOUR_FORM_ID") !== -1) {
+        event.preventDefault();
+        status.className = "Contact-Status is-error";
+        status.textContent = "This form is not connected yet. Replace YOUR_FORM_ID with your Formspree code.";
+        return;
+      }
+
+      // very old browsers just send the form the normal way
+      if (!window.fetch || !window.FormData) return;
+
+      event.preventDefault();
+      button.disabled = true;
+      button.textContent = "Sending...";
+      status.className = "Contact-Status";
+      status.textContent = "";
+
+      fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" }
+      })
+        .then(function (response) {
+          if (!response.ok) throw new Error("not sent");
+          form.reset();
+          status.className = "Contact-Status is-ok";
+          status.textContent = "Thank you. Your message has been sent.";
+        })
+        .catch(function () {
+          status.className = "Contact-Status is-error";
+          status.textContent = "Sorry, that did not send. Please try again in a moment.";
+        })
+        .then(function () {
+          button.disabled = false;
+          button.innerHTML = "Send message &rarr;";
+        });
+    });
   })();
 </script>
 

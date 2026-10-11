@@ -2285,3 +2285,306 @@ main {
         max-height: calc(50vh - 18px);
     }
 }
+
+/* ==========================================================
+   CONTACT SECTION AND FOOTER
+   Every rule starts with .Contact-Category or .Contact-Footer,
+   so nothing here can change any other section.
+   ========================================================== */
+
+.Contact-Category {
+    position: relative;
+    isolation: isolate;
+    overflow-x: clip;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 96px max(48px, calc((100% - 1100px) / 2)) 104px;
+    color: #1e1109;
+    background-color: #e2c08f;
+    background-image: linear-gradient(8deg, #d8b27c 0%, #e2c08f 50%, #ebcfa3 100%);
+    box-shadow: 0 -22px 44px rgba(28, 14, 8, 0.35);
+}
+
+.Contact-Category *,
+.Contact-Category *::before,
+.Contact-Category *::after {
+    box-sizing: border-box;
+}
+
+/* ---------- intro ---------- */
+
+.Contact-Category .Contact-Label {
+    margin: 0 0 20px;
+    font-family: system-ui, sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #1e1109;
+}
+
+.Contact-Category .Contact-Label::before {
+    content: "";
+    display: inline-block;
+    width: 40px;
+    height: 1px;
+    margin-right: 14px;
+    vertical-align: middle;
+    background: #1e1109;
+}
+
+.Contact-Category .Contact-Intro h2 {
+    max-width: 16ch;
+    margin: 0 0 22px;
+    font-family: "Fraunces", Georgia, serif;
+    font-size: clamp(2.4rem, 5.5vw, 4rem);
+    font-weight: 500;
+    line-height: 1.05;
+    color: #1e1109;
+}
+
+.Contact-Category .Contact-Hook {
+    max-width: 38ch;
+    margin: 0;
+    font-family: "Fraunces", Georgia, serif;
+    font-style: italic;
+    font-size: clamp(1.2rem, 2.4vw, 1.55rem);
+    line-height: 1.45;
+    color: #1e1109;
+}
+
+/* ---------- two columns: ways to help, and the form ---------- */
+
+.Contact-Category .Contact-Columns {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 56px;
+    align-items: start;
+    margin-top: 56px;
+}
+
+.Contact-Category .Contact-Way {
+    display: grid;
+    grid-template-columns: 64px minmax(0, 1fr);
+    gap: 14px;
+    padding: 22px 0;
+    border-top: 1px solid rgba(30, 17, 9, 0.35);
+}
+
+.Contact-Category .Contact-Way:last-child {
+    border-bottom: 1px solid rgba(30, 17, 9, 0.35);
+}
+
+.Contact-Category .Contact-WayNumber {
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 2.6rem;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(30, 17, 9, 0.6);
+}
+
+.Contact-Category .Contact-Way h3 {
+    margin: 0 0 6px;
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #1e1109;
+}
+
+.Contact-Category .Contact-Way p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.65;
+    color: rgba(30, 17, 9, 0.88);
+}
+
+/* ---------- the form ---------- */
+
+.Contact-Category .Contact-Form {
+    padding: 36px 32px 28px;
+    background: #24150e;
+    color: #ffffff;
+    box-shadow: 0 18px 40px rgba(28, 14, 8, 0.3);
+}
+
+.Contact-Category .Contact-Form h3 {
+    margin: 0 0 24px;
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.Contact-Category .Contact-Field {
+    margin-bottom: 20px;
+}
+
+.Contact-Category .Contact-Field label {
+    display: block;
+    margin-bottom: 4px;
+    font-family: system-ui, sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #e8c98f;
+}
+
+.Contact-Category .Contact-Field input,
+.Contact-Category .Contact-Field select,
+.Contact-Category .Contact-Field textarea {
+    display: block;
+    width: 100%;
+    padding: 8px 0;
+    border: 0;
+    border-bottom: 1px solid rgba(232, 201, 143, 0.5);
+    border-radius: 0;
+    background: transparent;
+    color: #ffffff;
+    font: inherit;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.Contact-Category .Contact-Field textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+.Contact-Category .Contact-Field select option {
+    background: #e2c08f;
+    color: #1e1109;
+}
+
+.Contact-Category .Contact-Field input:focus,
+.Contact-Category .Contact-Field select:focus,
+.Contact-Category .Contact-Field textarea:focus {
+    outline: none;
+    border-bottom-color: #e8c98f;
+    box-shadow: 0 1px 0 #e8c98f;
+}
+
+.Contact-Category .Contact-Field input:-webkit-autofill {
+    -webkit-text-fill-color: #ffffff;
+    transition: background-color 9999s ease-in-out 0s;
+}
+
+/* hidden spam trap: real visitors never see or fill this */
+.Contact-Category .Contact-Trap {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.Contact-Category .Contact-Send {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 13px 26px;
+    border: 0;
+    background: #e2c08f;
+    color: #1e1109;
+    font-family: system-ui, sans-serif;
+    font-size: 0.92rem;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.Contact-Category .Contact-Send:hover {
+    background: #ebcfa3;
+}
+
+.Contact-Category .Contact-Send:focus-visible {
+    outline: 2px solid #9db1e8;
+    outline-offset: 3px;
+}
+
+.Contact-Category .Contact-Send:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.Contact-Category .Contact-Status {
+    min-height: 1.4em;
+    margin: 14px 0 0;
+    font-size: 0.92rem;
+    line-height: 1.5;
+}
+
+.Contact-Category .Contact-Status.is-ok {
+    color: #e8c98f;
+}
+
+.Contact-Category .Contact-Status.is-error {
+    color: #ffb4a2;
+}
+
+.Contact-Category .Contact-Small {
+    margin: 10px 0 0;
+    font-size: 0.78rem;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+/* ---------- footer ---------- */
+
+.Contact-Footer {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 40px;
+    padding: 40px max(48px, calc((100% - 1100px) / 2)) 44px;
+    background-color: #1c110a;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.Contact-Footer p {
+    margin: 0;
+}
+
+.Contact-Footer .Contact-FooterName {
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 1.15rem;
+    color: #ffffff;
+}
+
+.Contact-Footer .Contact-FooterHead {
+    margin-bottom: 4px;
+    font-family: system-ui, sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #9db1e8;
+}
+
+.Contact-Footer .Contact-FooterText {
+    margin-top: 6px;
+    font-family: system-ui, sans-serif;
+    font-size: 0.82rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* ---------- phones ---------- */
+
+@media (max-width: 800px) {
+    .Contact-Category {
+        padding: 64px 24px 72px;
+    }
+
+    .Contact-Category .Contact-Columns {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 40px;
+        margin-top: 40px;
+    }
+
+    .Contact-Category .Contact-Form {
+        padding: 28px 22px 24px;
+    }
+
+    .Contact-Footer {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 28px;
+        padding: 32px 24px 36px;
+    }
+}
