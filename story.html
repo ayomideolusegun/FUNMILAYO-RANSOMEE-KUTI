@@ -136,6 +136,16 @@
             </div>
             </section>
         </main>
+
+        <button class="Back-To-Top" type="button" aria-label="Back to top">
+    <svg class="Back-To-Top-Ring" viewBox="0 0 48 48" aria-hidden="true">
+        <circle class="Back-To-Top-Track" cx="24" cy="24" r="21"></circle>
+        <circle class="Back-To-Top-Progress" cx="24" cy="24" r="21"></circle>
+    </svg>
+    <svg class="Back-To-Top-Arrow" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 19V6M6 11l6-6 6 6"></path>
+    </svg>
+</button>
         
 <!-- THE JAVASCRIPT BELOW IS FOR THE TYPING ANIMATION AND THE CASCADE EFFECTS ON THE CHAPTERS. IT ALSO CLOSES THE MOBILE MENU AFTER A LINK IS CLICKED.  -->
 <script>
@@ -322,6 +332,51 @@
     }
   });
 </script>
+
+<script>
+  // Back to top: the button appears after you scroll down, and its ring fills as you read
+  (function () {
+    var button = document.querySelector(".Back-To-Top");
+    if (!button) return;
+
+    var ring = button.querySelector(".Back-To-Top-Progress");
+    var circumference = 2 * Math.PI * 21;      // the ring is a circle with a radius of 21
+    var calmMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var ticking = false;
+
+    if (ring) {
+      ring.style.strokeDasharray = circumference;
+      ring.style.strokeDashoffset = circumference;
+    }
+
+    function update() {
+      var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+      var total = document.documentElement.scrollHeight - window.innerHeight;
+      var progress = total > 0 ? Math.min(1, Math.max(0, scrolled / total)) : 0;
+
+      button.classList.toggle("is-visible", scrolled > 500);
+      if (ring) ring.style.strokeDashoffset = circumference * (1 - progress);
+    }
+
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        ticking = false;
+        update();
+      });
+    }
+
+    button.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: calmMotion ? "auto" : "smooth" });
+    });
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    update();
+  })();
+</script>
+
     </body>
 
 
