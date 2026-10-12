@@ -2738,3 +2738,221 @@ main {
         height: 48px;
     }
 }
+
+/* ==========================================================
+   HERO: always fully visible, even on short, wide screens
+   ========================================================== */
+
+.Hero-Category {
+    height: auto;                 /* it can grow if the content needs more room */
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding-top: 88px;            /* clears the fixed header with room to spare */
+    padding-bottom: 56px;
+}
+
+@media (min-width: 701px) {
+    .Hero-Intro {
+        max-width: 800px;
+    }
+
+    .Hero-Intro h1 {
+        font-size: 3rem;
+        font-size: clamp(2.2rem, min(5vw, 9.5vh), 4.4rem);   /* shrinks on short screens */
+        margin-bottom: 22px;
+    }
+
+    .Hero-Intro p {
+        font-size: clamp(1rem, 2.6vh, 1.55rem);
+        margin-bottom: 22px;
+    }
+}
+
+/* ==========================================================
+   NAV BAR: a line draws under each link, a marker shows where you are
+   ========================================================== */
+
+.Header {
+    transition: box-shadow 0.3s ease;
+}
+
+.Header.is-scrolled {
+    box-shadow: 0 8px 20px rgba(28, 14, 8, 0.3);
+}
+
+.Header .Header-Nav ul li a {
+    position: relative;
+    padding: 6px 0;
+    color: #2b1a10;
+    font-weight: 400;
+}
+
+.Header .Header-Nav ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: #2b1a10;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+/* replaces your old hover (bold, capitals and red), which pushed the other links sideways */
+.Header .Header-Nav ul li a:hover {
+    color: #2b1a10;
+    font-weight: 400;
+    text-transform: none;
+    text-decoration: none;
+}
+
+.Header .Header-Nav ul li a:hover::after,
+.Header .Header-Nav ul li a.is-current::after {
+    transform: scaleX(1);
+}
+
+@media (max-width: 900px) {
+    .Header .Header-Nav ul li a::after {
+        left: 24px;
+        right: 24px;
+        bottom: 8px;
+    }
+}
+
+/* ==========================================================
+   HERO BUTTON: a dark fill sweeps across, and the arrow nods
+   ========================================================== */
+
+.Hero-Intro a {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 26px;
+    border-radius: 2px;
+    background-color: #e8c98f;
+    color: #1e1109;
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    transition: color 0.4s ease;
+}
+
+.Hero-Intro a::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: #1e1109;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.Hero-Intro a::after {
+    content: "\2193";
+    display: inline-block;
+    animation: fk-nod 2.4s ease-in-out infinite;
+}
+
+.Hero-Intro a:hover {
+    background-color: #e8c98f;
+    color: #e8c98f;
+}
+
+.Hero-Intro a:hover::before {
+    transform: scaleX(1);
+}
+
+.Hero-Intro a:hover::after {
+    animation: none;
+    transform: translateY(4px);
+}
+
+@keyframes fk-nod {
+    0%, 60%, 100% { transform: translateY(0); }
+    30% { transform: translateY(4px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .Hero-Intro a::after {
+        animation: none;
+    }
+}
+
+/* ==========================================================
+   "BACK TO ALL CHAPTERS": now fixed at the top of the Story page
+   (delete the older .Back-Strip rules first, then paste this)
+   ========================================================== */
+
+.Back-Strip {
+    height: 104px;                /* reserves the space, so the first chapter starts below it */
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+}
+
+.Back-Strip::before {
+    content: "";
+    position: fixed;
+    top: 60px;                    /* just under the header */
+    left: 0;
+    right: 0;
+    height: 44px;
+    z-index: 59;
+    background: #4d3123;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 6px 14px rgba(28, 14, 8, 0.25);
+}
+
+.Back-Strip a {
+    position: fixed;
+    top: 60px;
+    left: max(48px, calc((100% - 1100px) / 2));
+    z-index: 60;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 44px;
+    font-family: system-ui, sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #9db1e8;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.Back-Strip a span {
+    display: inline-block;
+    transition: transform 0.2s;
+}
+
+.Back-Strip a:hover {
+    color: #ffffff;
+}
+
+.Back-Strip a:hover span {
+    transform: translateX(-4px);
+}
+
+.Back-Strip a:focus-visible {
+    outline: 2px solid #9db1e8;
+    outline-offset: 4px;
+}
+
+@media (max-width: 700px) {
+    .Back-Strip a {
+        left: 24px;
+    }
+}
+
+/* chapters you jump to land below the header and this strip */
+main section {
+    scroll-margin-top: 104px;
+}

@@ -12,6 +12,20 @@
         <link rel="stylesheet" href="CSS/Reset.css">
         <link rel="stylesheet" href="CSS/Homepage.css">
         <link rel="stylesheet" href="/CSS/Chapters.css">
+
+        <script>
+  // when the page is refreshed, start again from the top (links with a # still land where they point)
+  (function () {
+    var entry = window.performance && performance.getEntriesByType ? performance.getEntriesByType("navigation")[0] : null;
+    var reloaded = entry ? entry.type === "reload" : (window.performance && performance.navigation && performance.navigation.type === 1);
+
+    if (reloaded && !location.hash && "scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+      window.addEventListener("load", function () { window.scrollTo(0, 0); });
+    }
+  })();
+</script>
+
     </head>
 
     <body>
@@ -1502,6 +1516,83 @@
     button.addEventListener("click", function () {
       window.scrollTo({ top: 0, behavior: calmMotion ? "auto" : "smooth" });
     });
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    update();
+  })();
+</script>
+
+<script>
+  // Navigation: a shadow under the bar once you scroll, and a "you are here" marker
+  (function () {
+    var header = document.querySelector(".Header");
+    var links = Array.prototype.slice.call(document.querySelectorAll(".Header-Nav a"));
+    if (!header || !links.length) return;
+
+    var onStoryPage = /story\.html$/i.test(location.pathname);
+    var targets = [];
+    var ticking = false;
+
+    // links that point to a section on this same page
+    links.forEach(function (link) {
+      var href = link.getAttribute("href") || "";
+      if (href.charAt(0) === "#" && href.length > 1) {
+        var el = document.getElementById(href.slice(1));
+        if (el) targets.push({ link: link, el: el });
+      }
+    });
+
+    function findLink(pattern) {
+      return links.filter(function (link) {
+        return pattern.test(link.getAttribute("href") || "");
+      })[0] || null;
+    }
+
+    var homeLink = findLink(/#Home$/i);
+    var storyLink = findLink(/#Story$/i);
+
+    function setCurrent(current) {
+      links.forEach(function (link) {
+        link.classList.toggle("is-current", link === current);
+        if (link === current) link.setAttribute("aria-current", "true");
+        else link.removeAttribute("aria-current");
+      });
+    }
+
+    function update() {
+      var y = window.pageYOffset || document.documentElement.scrollTop;
+      header.classList.toggle("is-scrolled", y > 10);
+
+      // on the Story page, the Story link is the page you are on
+      if (onStoryPage) {
+        setCurrent(storyLink);
+        return;
+      }
+
+      var line = header.offsetHeight + window.innerHeight * 0.25;
+      var current = null;
+
+      targets.forEach(function (target) {
+        if (target.el.getBoundingClientRect().top <= line) current = target.link;
+      });
+
+      // at the very bottom of the page, the last section is the one you are in
+      var atBottom = y + window.innerHeight >= document.documentElement.scrollHeight - 2;
+      if (atBottom && targets.length) current = targets[targets.length - 1].link;
+
+      if (!current && y < 200) current = homeLink;
+      setCurrent(current);
+    }
+
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        ticking = false;
+        update();
+      });
+    }
 
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
