@@ -2650,3 +2650,91 @@ main {
     background-color: #222222;
     color: #ffffff;
 }
+
+
+/* ==========================================================
+   BACK-TO-TOP BUTTON
+   ========================================================== */
+
+.Back-To-Top {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 90;                 /* under your header (100), over the page */
+    width: 54px;
+    height: 54px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: #24150e;
+    color: #e8c98f;
+    box-shadow: 0 8px 22px rgba(28, 14, 8, 0.45);
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(14px);
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease, background 0.2s ease;
+}
+
+.Back-To-Top.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.Back-To-Top:hover {
+    background: #3a2417;
+    transform: translateY(-3px);
+}
+
+.Back-To-Top:focus-visible {
+    outline: 2px solid #9db1e8;
+    outline-offset: 3px;
+}
+
+/* the ring that fills as you scroll down the page */
+.Back-To-Top .Back-To-Top-Ring {
+    position: absolute;
+    inset: 3px;
+    width: calc(100% - 6px);
+    height: calc(100% - 6px);
+    transform: rotate(-90deg);
+}
+
+.Back-To-Top .Back-To-Top-Track,
+.Back-To-Top .Back-To-Top-Progress {
+    fill: none;
+    stroke-width: 2.5;
+}
+
+.Back-To-Top .Back-To-Top-Track {
+    stroke: rgba(232, 201, 143, 0.25);
+}
+
+.Back-To-Top .Back-To-Top-Progress {
+    stroke: #e8c98f;
+    stroke-linecap: round;
+}
+
+.Back-To-Top .Back-To-Top-Arrow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 22px;
+    height: 22px;
+    margin: -11px 0 0 -11px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+@media (max-width: 800px) {
+    .Back-To-Top {
+        right: 16px;
+        bottom: 16px;
+        width: 48px;
+        height: 48px;
+    }
+}

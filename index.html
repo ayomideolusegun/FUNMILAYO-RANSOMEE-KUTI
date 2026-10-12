@@ -916,6 +916,16 @@
 
 </footer>
             </main>
+
+            <button class="Back-To-Top" type="button" aria-label="Back to top">
+    <svg class="Back-To-Top-Ring" viewBox="0 0 48 48" aria-hidden="true">
+        <circle class="Back-To-Top-Track" cx="24" cy="24" r="21"></circle>
+        <circle class="Back-To-Top-Progress" cx="24" cy="24" r="21"></circle>
+    </svg>
+    <svg class="Back-To-Top-Arrow" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 19V6M6 11l6-6 6 6"></path>
+    </svg>
+</button>
         
 <!-- THE JAVASCRIPT BELOW IS FOR THE TYPING ANIMATION AND THE CASCADE EFFECTS ON THE CHAPTERS. IT ALSO CLOSES THE MOBILE MENU AFTER A LINK IS CLICKED.  -->
 <script>
@@ -933,36 +943,69 @@
 
     var calmMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    // typing animation on the hero heading
+        // typing animation on the hero heading (it now rotates through several statements)
     var heading = document.querySelector(".Hero-Typing");
 
     if (heading && !calmMotion) {
       var live = heading.querySelector(".Typing-Live");
-      var message = "A WOMAN WHO REFUSED TO BE SILENT";
+      var ghost = heading.querySelector(".Typing-Ghost");
+
+      // the statements, one after another (add, remove or reword them freely)
+      var messages = [
+        "A WOMAN WHO REFUSED TO BE SILENT",
+        "THEY TAXED THE WOMEN. SHE ORGANISED THEM.",
+        "SHE TOOK ON A KING, AND THE TAX FELL.",
+        "THE LIONESS OF LISABI",
+        "TWENTY THOUSAND WOMEN. ONE VOICE.",
+        "SHE TAUGHT WOMEN TO READ, THEN TO LEAD."
+      ];
+      var which = 0;
       var count = 0;
       var typing = true;
 
+      // keeps the heading as tall as the longest statement, so nothing below it jumps
+      function reserveHeight() {
+        if (!ghost) return;
+        heading.style.minHeight = "";
+        var tallest = 0;
+        messages.forEach(function (text) {
+          ghost.textContent = text;
+          tallest = Math.max(tallest, heading.offsetHeight);
+        });
+        ghost.textContent = messages[0];
+        heading.style.minHeight = tallest + "px";
+      }
+
       function draw() {
-        live.innerHTML = message.slice(0, count) + '<span class="Typing-Cursor"></span>';
+        live.innerHTML = messages[which].slice(0, count) + '<span class="Typing-Cursor"></span>';
       }
 
       function step() {
         var delay;
+        var message = messages[which];
+
         if (typing) {
           count++;
           draw();
-          if (count >= message.length) { typing = false; delay = 2400; }
-          else { delay = 85; }
+          if (count >= message.length) { typing = false; delay = 2600; }   // hold the full statement
+          else { delay = 85; }                                              // typing speed
         } else {
           count--;
           draw();
-          if (count <= 0) { typing = true; delay = 700; }
-          else { delay = 35; }
+          if (count <= 0) {
+            typing = true;
+            which = (which + 1) % messages.length;                          // on to the next statement
+            delay = 700;
+          } else {
+            delay = 35;                                                     // clearing speed
+          }
         }
         setTimeout(step, delay);
       }
 
       heading.classList.add("is-typing");
+      reserveHeight();
+      window.addEventListener("resize", reserveHeight);
       draw();
       setTimeout(step, 600);
     }
@@ -1267,6 +1310,8 @@
     var captionEl = dialog.querySelector(".Gallery-LightboxCaption");
     var creditEl = dialog.querySelector(".Gallery-LightboxCredit");
     var index = 0;
+    var savedScroll = 0;      // where the page was when the viewer opened
+    var openedFrom = null;    // the frame that was clicked
 
     function pad(n) { return n < 10 ? "0" + n : String(n); }
 
@@ -1281,6 +1326,7 @@
     }
 
     function openViewer() {
+      savedScroll = window.pageYOffset || document.documentElement.scrollTop;
       if (typeof dialog.showModal === "function") {
         if (!dialog.open) dialog.showModal();
       } else {
@@ -1291,6 +1337,21 @@
     function closeViewer() {
       if (typeof dialog.close === "function") dialog.close();
       else dialog.removeAttribute("open");
+    }
+
+    // when the viewer closes, put the page back exactly where you were
+    function restorePosition() {
+      var root = document.documentElement;
+      var before = root.style.scrollBehavior;
+      root.style.scrollBehavior = "auto";          // jump straight back, no gliding
+      if (openedFrom && openedFrom.focus) {
+        try { openedFrom.focus({ preventScroll: true }); } catch (e) { /* older browsers */ }
+      }
+      window.scrollTo(0, savedScroll);
+      requestAnimationFrame(function () {
+        window.scrollTo(0, savedScroll);
+        root.style.scrollBehavior = before;
+      });
     }
 
     function show(i) {
@@ -1326,9 +1387,12 @@
       if (!item) return;
       var i = items.indexOf(item);
       if (i === -1) return;
+      openedFrom = item.querySelector(".Gallery-Frame");
       show(i);
       openViewer();
     });
+
+    dialog.addEventListener("close", restorePosition);
 
     var closeBtn = dialog.querySelector(".Gallery-Close");
     var prevBtn = dialog.querySelector(".Gallery-Prev");
@@ -1398,6 +1462,50 @@
           button.innerHTML = "Send message &rarr;";
         });
     });
+  })();
+</script>
+
+<script>
+  // Back to top: the button appears after you scroll down, and its ring fills as you read
+  (function () {
+    var button = document.querySelector(".Back-To-Top");
+    if (!button) return;
+
+    var ring = button.querySelector(".Back-To-Top-Progress");
+    var circumference = 2 * Math.PI * 21;      // the ring is a circle with a radius of 21
+    var calmMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var ticking = false;
+
+    if (ring) {
+      ring.style.strokeDasharray = circumference;
+      ring.style.strokeDashoffset = circumference;
+    }
+
+    function update() {
+      var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+      var total = document.documentElement.scrollHeight - window.innerHeight;
+      var progress = total > 0 ? Math.min(1, Math.max(0, scrolled / total)) : 0;
+
+      button.classList.toggle("is-visible", scrolled > 500);
+      if (ring) ring.style.strokeDashoffset = circumference * (1 - progress);
+    }
+
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        ticking = false;
+        update();
+      });
+    }
+
+    button.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: calmMotion ? "auto" : "smooth" });
+    });
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    update();
   })();
 </script>
 
