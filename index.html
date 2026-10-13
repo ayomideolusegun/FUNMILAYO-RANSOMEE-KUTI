@@ -70,36 +70,36 @@
                 <p class="Legacy-Eyebrow">The Story</p>
                 <h1>Before the Legacy, There Was a <em>Woman</em></h1>
                 <p class="Legacy-Text">Behind the name remembered in history was a woman who lived, learned, taught, struggled and dared to challenge the world around her. Funmilayo Ransome-Kuti's journey began long before she became a voice for women's rights and social change. To understand the legacy she left behind, we must first return to the woman she was; and the experiences that shaped her.</p>
-                <a class="Legacy-Start" href="story.html#Before-the-Name">Begin with chapter one</a>
+                <a class="Legacy-Start" href="before-the-name.html">Begin with chapter one</a>
             </div>
 
         <ol class="Legacy-Chapters">
-            <li><a href="story.html#Before-the-Name">
+            <li><a href="before-the-name.html">
                 <span class="Legacy-Year">1900</span>
                 <span class="Legacy-Chapter-Title">Before the Name</span>
                 <span class="Legacy-Chapter-Hook">Who was she before history knew her name?</span>
             </a></li>
-            <li><a href="story.html#Early-Life">
+            <li><a href="early-life.html">
                 <span class="Legacy-Year">1906</span>
                 <span class="Legacy-Chapter-Title">Early Life and Education</span>
                 <span class="Legacy-Chapter-Hook">One of the first girls admitted to her school.</span>
             </a></li>
-            <li><a href="story.html#Finding-Her-Calling">
+            <li><a href="finding-her-calling.html">
                 <span class="Legacy-Year">1922</span>
                 <span class="Legacy-Chapter-Title">Finding Her Calling</span>
                 <span class="Legacy-Chapter-Hook">The teacher who began to see beyond the classroom.</span>
             </a></li>
-            <li><a href="story.html#A-Voice-Begins-to-Rise">
+            <li><a href="a-voice-begins-to-rise.html">
                 <span class="Legacy-Year">1944</span>
                 <span class="Legacy-Chapter-Title">A Voice Begins to Rise</span>
                 <span class="Legacy-Chapter-Hook">How a ladies' club became a movement.</span>
             </a></li>
-            <li><a href="story.html#Becomes-an-Activist">
+            <li><a href="becomes-an-activist.html">
                 <span class="Legacy-Year">1947</span>
                 <span class="Legacy-Chapter-Title">A Teacher Becomes an Activist</span>
                 <span class="Legacy-Chapter-Hook">She refused to pay her tax, and thousands stood with her.</span>
             </a></li>
-            <li><a href="story.html#Life-as-an-Activist">
+            <li><a href="life-as-an-activist.html">
                 <span class="Legacy-Year">1978</span>
                 <span class="Legacy-Chapter-Title">A Life of Resistance</span>
                 <span class="Legacy-Chapter-Hook">Decades of insisting women deserved a voice.</span>
@@ -1669,7 +1669,7 @@
     var links = Array.prototype.slice.call(document.querySelectorAll(".Header-Nav a"));
     if (!header || !links.length) return;
 
-    var onStoryPage = /story\.html$/i.test(location.pathname);
+    var onStoryPage = !!document.querySelector(".Back-Strip");
     var targets = [];
     var ticking = false;
 

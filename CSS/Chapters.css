@@ -3053,3 +3053,74 @@ main section {
 .Contact-Category .Contact-FileItem button:hover {
     background: rgba(232, 201, 143, 0.14);
 }
+
+/* ==========================================================
+   CHAPTER PAGER: Previous and Next at the end of each chapter page
+   ========================================================== */
+
+.Chapter-Pager {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 20px;
+    padding: 36px max(48px, calc((100% - 1100px) / 2)) 44px;
+    background: #4d3123;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.Chapter-Pager a {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 18px 22px;
+    border: 1px solid rgba(232, 201, 143, 0.45);
+    color: #ffffff;
+    text-decoration: none;
+    transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.Chapter-Pager a:hover {
+    background: rgba(232, 201, 143, 0.12);
+    border-color: #e8c98f;
+}
+
+.Chapter-Pager a:focus-visible {
+    outline: 2px solid #9db1e8;
+    outline-offset: 3px;
+}
+
+.Chapter-Pager .Chapter-Pager-Prev {
+    grid-column: 1;
+}
+
+.Chapter-Pager .Chapter-Pager-Next {
+    grid-column: 2;
+    text-align: right;
+}
+
+.Chapter-Pager .Chapter-Pager-Label {
+    font-family: system-ui, sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #9db1e8;
+}
+
+.Chapter-Pager .Chapter-Pager-Title {
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 1.35rem;
+    line-height: 1.25;
+}
+
+@media (max-width: 700px) {
+    .Chapter-Pager {
+        grid-template-columns: minmax(0, 1fr);
+        padding: 28px 24px 36px;
+    }
+
+    .Chapter-Pager .Chapter-Pager-Prev,
+    .Chapter-Pager .Chapter-Pager-Next {
+        grid-column: 1;
+        text-align: left;
+    }
+}

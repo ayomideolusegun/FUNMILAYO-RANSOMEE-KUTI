@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head> 
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Before the Name | Funmilayo Ransome-Kuti</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital,wght@1,800&display=swap" rel="stylesheet">
+        <!-- LINKING OF MY CSS -->
+        <link rel="stylesheet" href="CSS/Reset.css">
+        <link rel="stylesheet" href="CSS/Homepage.css">
+        <link rel="stylesheet" href="CSS/Chapters.css">
+
+        <script>
+  // when the page is refreshed, start again from the top (links with a # still land where they point)
+  (function () {
+    var entry = window.performance && performance.getEntriesByType ? performance.getEntriesByType("navigation")[0] : null;
+    var reloaded = entry ? entry.type === "reload" : (window.performance && performance.navigation && performance.navigation.type === 1);
+
+    if (reloaded && !location.hash && "scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+      window.addEventListener("load", function () { window.scrollTo(0, 0); });
+    }
+  })();
+</script>
+ 
+    </head>
+
+    <body>
+<header class="Header">
+    <a class="Header-Brand" href="index.html">Funmilayo Ransome-Kuti</a>
+    <input type="checkbox" id="Nav-Toggle" class="Nav-Toggle">
+    <label for="Nav-Toggle" class="Nav-Burger" aria-label="Menu"><span></span></label>
+
+    <nav class="Header-Nav">
+        <ul>
+             <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#Story">Story</a></li>
+            <li><a href="index.html#Activism">Activism</a></li>
+            <li><a href="index.html#Timeline">Timeline</a></li>
+            <li><a href="index.html#Legacy">Legacy</a></li>
+            <li><a href="index.html#Gallery">Gallery</a></li>
+            <li><a href="index.html#Contact">Contact</a></li>
+</ul>
+    </nav>
+</header>  
+
+        <main>
+            <div class="Back-Strip">
+                 <a href="index.html#Story"><span aria-hidden="true">←</span>Back to all chapters</a> 
+            </div>
+                             <!-- STORY-BIOGRAPHY SECTION -->
+            <section id="Before-the-Name" class="Before-the-Name-Category">
+             <div class="Before-the-Name"> 
+                <h2>Before the Name</h2>
+                <p>Funmilayo Ransome-Kuti was born Frances Abigail Olufunmilayo Thomas on October 25, 1900, in Abeokuta, in what is now Ogun State, Nigeria. She was the daughter of Daniel Olumoyewa Thomas, a farmer and trader, and Phyllis Moyeni Dese, a dressmaker. Her parents were educated Christians who placed importance on education and had high hopes for their children.
+
+                    She was born into a Yoruba family at a time when Nigeria was under British colonial rule, and the opportunities available to African women were deeply limited. Yet Abeokuta itself had a strong tradition of commerce, community organisation and women's participation in economic life. These surroundings would become an important part of the world in which Funmilayo grew up.
+
+                    The girl who would later become known as Funmilayo Ransome Kuti therefore did not begin her life as a political figure. She began as a daughter, a student and a young woman growing up in Abeokuta long before her name became associated with women's rights and political resistance.</p>
+             </div>
+            </section>
+
+            <nav class="Chapter-Pager" aria-label="Chapter navigation">
+    <a class="Chapter-Pager-Next" href="early-life.html">
+        <span class="Chapter-Pager-Label">Next chapter &rarr;</span>
+        <span class="Chapter-Pager-Title">Early Life and Education</span>
+    </a>
+</nav>
+        </main>
+
+        <button class="Back-To-Top" type="button" aria-label="Back to top">
+    <svg class="Back-To-Top-Ring" viewBox="0 0 48 48" aria-hidden="true">
+        <circle class="Back-To-Top-Track" cx="24" cy="24" r="21"></circle>
+        <circle class="Back-To-Top-Progress" cx="24" cy="24" r="21"></circle>
+    </svg>
+    <svg class="Back-To-Top-Arrow" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 19V6M6 11l6-6 6 6"></path>
+    </svg>
+</button>
+        
+<!-- THE JAVASCRIPT BELOW IS FOR THE TYPING ANIMATION AND THE CASCADE EFFECTS ON THE CHAPTERS. IT ALSO CLOSES THE MOBILE MENU AFTER A LINK IS CLICKED.  -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+
+    // close the mobile menu after tapping a link
+    var toggle = document.getElementById("Nav-Toggle");
+    if (toggle) {
+      document.querySelectorAll(".Header-Nav a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          toggle.checked = false;
+        });
+      });
+    }
+
+    var calmMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // typing animation on the hero heading
+    var heading = document.querySelector(".Hero-Typing");
+
+    if (heading && !calmMotion) {
+      var live = heading.querySelector(".Typing-Live");
+      var message = "A WOMAN WHO REFUSED TO BE SILENT";
+      var count = 0;
+      var typing = true;
+
+      function draw() {
+        live.innerHTML = message.slice(0, count) + '<span class="Typing-Cursor"></span>';
+      }
+
+      function step() {
+        var delay;
+        if (typing) {
+          count++;
+          draw();
+          if (count >= message.length) { typing = false; delay = 2400; }
+          else { delay = 85; }
+        } else {
+          count--;
+          draw();
+          if (count <= 0) { typing = true; delay = 700; }
+          else { delay = 35; }
+        }
+        setTimeout(step, delay);
+      }
+
+      heading.classList.add("is-typing");
+      draw();
+      setTimeout(step, 600);
+    }
+
+    var chapterSelector = ".Before-the-Name-Category, .Early-Life-and-Education-Category, " +
+      ".Finding-Her-Calling-Category, .A-Voice-Begins-to-Rise-Category, " +
+      ".Becomes-an-Activist-Category, .Life-as-an-Activist-Category";
+
+    if ("IntersectionObserver" in window && !calmMotion) {
+
+      // ---------- chapter text types itself in, once ----------
+
+      var cursor = document.createElement("span");
+      cursor.className = "Type-Cursor";
+
+      // show the full text straight away (also used when you scroll past)
+      function finishNow(section) {
+        clearTimeout(section._timer);
+        cancelAnimationFrame(section._raf);
+        section._state = "done";
+        section._typing.forEach(function (part) {
+          part.ghost.classList.add("is-done");
+          part.live.remove();
+        });
+        startObserver.unobserve(section);
+        leaveObserver.unobserve(section);
+      }
+
+      function typeSection(section) {
+        section._state = "typing";
+        var parts = section._typing;
+        var total = 0;
+        parts.forEach(function (part) { total += part.text.length; });
+
+        var charsPerSecond = Math.max(70, total / 10);   // a long chapter takes about 10 seconds
+        var startTime = null;
+
+        function frame(now) {
+          if (startTime === null) startTime = now;
+          var typed = Math.min(total, Math.floor((now - startTime) / 1000 * charsPerSecond));
+          var left = typed;
+          var current = parts.length - 1;
+          var found = false;
+
+          parts.forEach(function (part, index) {
+            var take = Math.max(0, Math.min(left, part.text.length));
+            part.live.textContent = part.text.slice(0, take);
+            if (!found && take < part.text.length) { current = index; found = true; }
+            left -= take;
+          });
+
+          if (typed < total) {
+            parts[current].live.appendChild(cursor);
+            section._raf = requestAnimationFrame(frame);
+          } else {
+            finishNow(section);
+          }
+        }
+
+        section._raf = requestAnimationFrame(frame);
+      }
+
+      // starts the typing when the card comes into view (after the cascade)
+      var startObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          var section = entry.target;
+          if (entry.isIntersecting && section._state === "waiting") {
+            section._state = "queued";
+            section._timer = setTimeout(function () { typeSection(section); }, 900);
+            startObserver.unobserve(section);
+          }
+        });
+      }, { threshold: 0, rootMargin: "0px 0px -20% 0px" });
+
+      // if you scroll past a chapter before it finishes, the text appears at once
+      var leaveObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          var section = entry.target;
+          if (section._state === "done") return;
+
+          if (entry.isIntersecting) {
+            section._seen = true;
+          } else if (section._seen || entry.boundingClientRect.bottom <= 0) {
+            // you have scrolled past it (or it was already above you after a refresh)
+            finishNow(section);
+          }
+        });
+      }, { threshold: 0, rootMargin: "0px" });
+
+      document.querySelectorAll(chapterSelector).forEach(function (section) {
+        var parts = [];
+
+        section.querySelectorAll("p").forEach(function (p) {
+          var text = p.textContent;
+          if (!text.trim()) return;
+
+          p.textContent = "";
+          p.classList.add("Type-Host");
+
+          var ghost = document.createElement("span");
+          ghost.className = "Type-Ghost";
+          ghost.textContent = text;
+
+          var live = document.createElement("span");
+          live.className = "Type-Live";
+          live.setAttribute("aria-hidden", "true");
+
+          p.appendChild(ghost);
+          p.appendChild(live);
+          parts.push({ ghost: ghost, live: live, text: text });
+        });
+
+        if (parts.length) {
+          section._typing = parts;
+          section._state = "waiting";
+          startObserver.observe(section);
+          leaveObserver.observe(section);
+        }
+      });
+
+      // ---------- each chapter card arrives with the cascade and year roll ----------
+
+      var cardObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting || entry.boundingClientRect.bottom <= 0) {
+            entry.target.classList.add("is-in");
+            cardObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0, rootMargin: "0px 0px -15% 0px" });
+
+      document.querySelectorAll(chapterSelector).forEach(function (card) {
+        cardObserver.observe(card);
+      });
+
+      document.documentElement.classList.add("fk-cascade-on");
+    }
+  });
+</script>
+
+<script>
+  // Back to top: the button appears after you scroll down, and its ring fills as you read
+  (function () {
+    var button = document.querySelector(".Back-To-Top");
+    if (!button) return;
+
+    var ring = button.querySelector(".Back-To-Top-Progress");
+    var circumference = 2 * Math.PI * 21;      // the ring is a circle with a radius of 21
+    var calmMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var ticking = false;
+
+    if (ring) {
+      ring.style.strokeDasharray = circumference;
+      ring.style.strokeDashoffset = circumference;
+    }
+
+    function update() {
+      var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+      var total = document.documentElement.scrollHeight - window.innerHeight;
+      var progress = total > 0 ? Math.min(1, Math.max(0, scrolled / total)) : 0;
+
+      button.classList.toggle("is-visible", scrolled > 500);
+      if (ring) ring.style.strokeDashoffset = circumference * (1 - progress);
+    }
+
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        ticking = false;
+        update();
+      });
+    }
+
+    button.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: calmMotion ? "auto" : "smooth" });
+    });
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    update();
+  })();
+</script>
+
+
+<script>
+  // Navigation: a shadow under the bar once you scroll, and a "you are here" marker
+  (function () {
+    var header = document.querySelector(".Header");
+    var links = Array.prototype.slice.call(document.querySelectorAll(".Header-Nav a"));
+    if (!header || !links.length) return;
+
+    var onStoryPage = !!document.querySelector(".Back-Strip");    var targets = [];
+    var ticking = false;
+
+    // links that point to a section on this same page
+    links.forEach(function (link) {
+      var href = link.getAttribute("href") || "";
+      if (href.charAt(0) === "#" && href.length > 1) {
+        var el = document.getElementById(href.slice(1));
+        if (el) targets.push({ link: link, el: el });
+      }
+    });
+
+    function findLink(pattern) {
+      return links.filter(function (link) {
+        return pattern.test(link.getAttribute("href") || "");
+      })[0] || null;
+    }
+
+    var homeLink = findLink(/#Home$/i);
+    var storyLink = findLink(/#Story$/i);
+
+    function setCurrent(current) {
+      links.forEach(function (link) {
+        link.classList.toggle("is-current", link === current);
+        if (link === current) link.setAttribute("aria-current", "true");
+        else link.removeAttribute("aria-current");
+      });
+    }
+
+    function update() {
+      var y = window.pageYOffset || document.documentElement.scrollTop;
+      header.classList.toggle("is-scrolled", y > 10);
+
+      // on the Story page, the Story link is the page you are on
+      if (onStoryPage) {
+        setCurrent(storyLink);
+        return;
+      }
+
+      var line = header.offsetHeight + window.innerHeight * 0.25;
+      var current = null;
+
+      targets.forEach(function (target) {
+        if (target.el.getBoundingClientRect().top <= line) current = target.link;
+      });
+
+      // at the very bottom of the page, the last section is the one you are in
+      var atBottom = y + window.innerHeight >= document.documentElement.scrollHeight - 2;
+      if (atBottom && targets.length) current = targets[targets.length - 1].link;
+
+      if (!current && y < 200) current = homeLink;
+      setCurrent(current);
+    }
+
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        ticking = false;
+        update();
+      });
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    update();
+  })();
+</script>
+
+    </body>
+
+
+
+
+
+
+</html>
