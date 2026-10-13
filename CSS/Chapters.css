@@ -2956,3 +2956,100 @@ main {
 main section {
     scroll-margin-top: 104px;
 }
+
+/* ----- Contact form: choosing photographs ----- */
+
+.Contact-Category .Contact-FieldLabel {
+    display: block;
+    margin-bottom: 8px;
+    font-family: system-ui, sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #e8c98f;
+}
+
+/* the real file chooser is hidden; the button below stands in for it */
+.Contact-Category .Contact-Field .Contact-FileInput {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+
+.Contact-Category .Contact-FileButton {
+    display: inline-block;
+    padding: 11px 20px;
+    border: 1px solid rgba(232, 201, 143, 0.6);
+    color: #ffffff;
+    font-family: system-ui, sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.Contact-Category .Contact-FileButton::before {
+    content: "+ ";
+    color: #e8c98f;
+}
+
+.Contact-Category .Contact-FileButton:hover {
+    background: rgba(232, 201, 143, 0.14);
+    border-color: #e8c98f;
+}
+
+.Contact-Category .Contact-FileInput:focus-visible + .Contact-FileButton {
+    outline: 2px solid #9db1e8;
+    outline-offset: 3px;
+}
+
+.Contact-Category .Contact-FileList {
+    margin: 12px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.Contact-Category .Contact-FileItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+    padding: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.Contact-Category .Contact-FileItem img {
+    width: 44px;
+    height: 44px;
+    object-fit: cover;
+    flex: none;
+}
+
+.Contact-Category .Contact-FileItem span {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.Contact-Category .Contact-FileItem button {
+    flex: none;
+    padding: 6px 10px;
+    border: 1px solid rgba(232, 201, 143, 0.5);
+    background: transparent;
+    color: #e8c98f;
+    font-family: system-ui, sans-serif;
+    font-size: 0.75rem;
+    cursor: pointer;
+}
+
+.Contact-Category .Contact-FileItem button:hover {
+    background: rgba(232, 201, 143, 0.14);
+}
