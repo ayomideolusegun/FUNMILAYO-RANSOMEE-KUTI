@@ -3115,7 +3115,9 @@ main section {
     }
 }
 
-.Before-the-Name-Category,
-.Early-Life-and-Education-Category {
-    margin-bottom: 0;
+@media (min-width: 761px) {
+    .Before-the-Name-Category,
+    .Early-Life-and-Education-Category {
+        min-height: 650px;
+    }
 }
