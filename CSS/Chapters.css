@@ -1,15 +1,5 @@
-/* ==========================================================
-   CHAPTERS.CSS
-   Styles for the six Story chapter sections, using YOUR
-   existing class names. It does not touch your Header, Hero,
-   or the "Before the Legacy" section.
 
-   Link it AFTER Homepage.css in your HTML <head>:
-   <link rel="stylesheet" href="CSS/Chapters.css">
-   ========================================================== */
-
-
-/* ---------- 1. Per-chapter details (edit these freely) ---------- */
+/* ---------- 1. Per-chapter details ---------- */
 
 .Before-the-Name-Category {
     --glow: 82% 50%;
@@ -3123,4 +3113,9 @@ main section {
         grid-column: 1;
         text-align: left;
     }
+}
+
+.Before-the-Name-Category,
+.Early-Life-and-Education-Category {
+    margin-bottom: 0;
 }
