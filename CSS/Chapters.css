@@ -3114,3 +3114,137 @@ main section {
         text-align: left;
     }
 }
+
+/* ==========================================================
+   MOBILE MENU: full-screen dark panel, blurred page, numbered links
+   ========================================================== */
+
+/* on desktop the number and description stay hidden */
+.Header-Nav .Nav-Num,
+.Header-Nav .Nav-Desc { display: none; }
+
+@media (max-width: 900px) {
+    .Header .Header-Nav {
+        display: block;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: auto;
+        padding: 4px 24px calc(28px + env(safe-area-inset-bottom, 0px));
+        background-color: rgba(24, 13, 8, 0.86);
+        -webkit-backdrop-filter: blur(12px);
+        backdrop-filter: blur(12px);
+        border-top: 1px solid rgba(232, 200, 144, 0.25);
+        box-shadow: none;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.25s ease, visibility 0s linear 0.25s;
+    }
+
+    .Header .Nav-Toggle:checked ~ .Header-Nav {
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.25s ease;
+    }
+
+    /* stops the page scrolling behind the open menu */
+    body:has(.Nav-Toggle:checked) { overflow: hidden; }
+
+    .Header .Header-Nav ul { padding: 0; }
+
+    .Header .Header-Nav ul li {
+        border-bottom: 0.5px solid rgba(232, 200, 144, 0.25);
+    }
+
+    .Header .Header-Nav ul li a {
+        display: grid;
+        grid-template-columns: 34px 1fr;
+        align-items: baseline;
+        padding: 12px 36px 12px 0;
+        font-size: 1rem;
+    }
+
+    .Header-Nav .Nav-Num {
+        display: block;
+        grid-row: 1 / span 2;
+        align-self: start;
+        padding-top: 11px;
+        font-size: 12px;
+        letter-spacing: 0.12em;
+        color: #b89a70;
+    }
+
+    .Header-Nav .Nav-Name {
+        display: block;
+        font-family: "Fraunces", Georgia, serif;
+        font-size: 25px;
+        line-height: 1.2;
+        color: #f3e6cf;
+    }
+
+    .Header-Nav .Nav-Desc {
+        display: block;
+        margin-top: 2px;
+        font-size: 13px;
+        color: #c9ad82;
+    }
+
+    /* "you are here": gold text, and the old underline becomes a dot */
+    .Header .Header-Nav ul li a.is-current .Nav-Name,
+    .Header .Header-Nav ul li a.is-current .Nav-Num { color: #e8c890; }
+
+    .Header .Header-Nav ul li a::after {
+        left: auto;
+        right: 0;
+        top: 50%;
+        bottom: auto;
+        width: 8px;
+        height: 8px;
+        margin-top: -4px;
+        border-radius: 50%;
+        background: #e8c890;
+        transform: scale(0);
+        transform-origin: center;
+    }
+
+    .Header .Header-Nav ul li a:hover::after,
+    .Header .Header-Nav ul li a.is-current::after { transform: scale(1); }
+
+    /* closing line under the links */
+    .Header .Header-Nav::after {
+        content: "1900 — 1978";
+        display: block;
+        margin-top: 24px;
+        padding-top: 14px;
+        border-top: 0.5px solid rgba(232, 200, 144, 0.25);
+        font-size: 12px;
+        letter-spacing: 0.16em;
+        color: #b89a70;
+    }
+}
+
+/* links rise in one after another (skipped for people who prefer less motion) */
+@media (max-width: 900px) and (prefers-reduced-motion: no-preference) {
+    .Header .Header-Nav ul li {
+        opacity: 0;
+        transform: translateY(10px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .Header .Nav-Toggle:checked ~ .Header-Nav ul li {
+        opacity: 1;
+        transform: none;
+    }
+
+    .Header .Nav-Toggle:checked ~ .Header-Nav ul li:nth-child(1) { transition-delay: 0.05s; }
+    .Header .Nav-Toggle:checked ~ .Header-Nav ul li:nth-child(2) { transition-delay: 0.10s; }
+    .Header .Nav-Toggle:checked ~ .Header-Nav ul li:nth-child(3) { transition-delay: 0.15s; }
+    .Header .Nav-Toggle:checked ~ .Header-Nav ul li:nth-child(4) { transition-delay: 0.20s; }
+    .Header .Nav-Toggle:checked ~ .Header-Nav ul li:nth-child(5) { transition-delay: 0.25s; }
+    .Header .Nav-Toggle:checked ~ .Header-Nav ul li:nth-child(6) { transition-delay: 0.30s; }
+    .Header .Nav-Toggle:checked ~ .Header-Nav ul li:nth-child(7) { transition-delay: 0.35s; }
+}
